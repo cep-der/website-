@@ -1,0 +1,16 @@
+[
+    {
+        "nome": "João Silva",
+        "cargo": "Coordenador",
+        "email": "joao.silva@der.sp.gov.br",
+        "telefone": "(11) 1234-5678",
+        "foto": "assets/joao.jpg"
+    },
+    {
+        "nome": "Maria Oliveira",
+        "cargo": "Analista Ambiental",
+        "email": "maria.oliveira@der.sp.gov.br",
+        "telefone": "(11) 8765-4321",
+        "foto": "assets/maria.jpg"
+    }
+]
