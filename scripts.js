@@ -1,120 +1,79 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const graficosContainer = document.getElementById("graficos-container");
-    const caminhoBase = "data/data_stat/"; // Caminho base onde os arquivos estão armazenados
+    const BASE_URL = "https://raw.githubusercontent.com/cep-der/website-/main/data/data_stat/2023/";
 
-    // Função para carregar anos_disponiveis.json
-    async function carregarAnosDisponiveis() {
+    const csvURLs = [
+        `${BASE_URL}estatisticas_da_unidade_SEIPro_processos_com_andamento_aberto_na_unidade.csv`,
+        `${BASE_URL}estatisticas_da_unidade_SEIPro_processos_com_andamento_fechado_na_unidade.csv`,
+        `${BASE_URL}estatisticas_da_unidade_SEIPro_processos_com_tramitacao.csv`,
+        `${BASE_URL}estatisticas_da_unidade_SEIPro_processos_gerados.csv`
+    ];
+
+    const idsGraficos = ["grafico-1", "grafico-2", "grafico-3", "grafico-4"];
+    const titulos = [
+        "Processos com andamento aberto na CEP em 2023",
+        "Processos com andamento fechado na CEP em 2023",
+        "Processos com tramitação na CEP em 2023",
+        "Processos gerados na CEP em 2023"
+    ];
+
+    async function carregarDadosCSV(url) {
         try {
-            const resposta = await fetch(`${caminhoBase}anos_disponiveis.json`);
-            if (!resposta.ok) throw new Error("Erro ao carregar anos_disponiveis.json.");
-            return await resposta.json();
+            console.log(`Carregando CSV: ${url}`);
+            const resposta = await fetch(url);
+            if (!resposta.ok) throw new Error(`Erro ao carregar CSV: ${resposta.statusText}`);
+            return await resposta.text();
         } catch (erro) {
-            console.error("Erro ao carregar anos_disponiveis.json:", erro);
-            return [];
+            console.error(`Erro ao carregar ${url}:`, erro);
+            return "";
         }
     }
 
-    // Função para carregar arquivos_disponiveis.json
-    async function carregarArquivosDisponiveis(ano) {
-        try {
-            const resposta = await fetch(`${caminhoBase}${ano}/arquivos_disponiveis.json`);
-            if (!resposta.ok) throw new Error(`Erro ao carregar arquivos_disponiveis.json para ${ano}.`);
-            return await resposta.json();
-        } catch (erro) {
-            console.error(`Erro ao carregar arquivos_disponiveis.json para ${ano}:`, erro);
-            return [];
-        }
+    function processarCSV(csvTexto) {
+        const linhas = csvTexto.split("\n").map(l => l.trim()).filter(l => l);
+        if (linhas.length < 2) return [];
+
+        const cabecalho = linhas[0].split(";");
+        return linhas.slice(1).map(linha => {
+            const valores = linha.split(";");
+            return cabecalho.reduce((obj, chave, i) => {
+                obj[chave.trim()] = valores[i] ? valores[i].trim() : "";
+                return obj;
+            }, {});
+        });
     }
 
-    // Função para carregar dados JSON
-    async function carregarDadosJSON(caminho) {
-        try {
-            const resposta = await fetch(caminho);
-            if (!resposta.ok) throw new Error("Erro ao carregar JSON.");
-            return await resposta.json();
-        } catch (erro) {
-            console.error(`Erro ao carregar o arquivo JSON: ${caminho}`, erro);
-            return [];
-        }
-    }
-
-    // Função para formatar o título do gráfico
-    function formatarTitulo(nomeArquivo) {
-        let titulo = nomeArquivo.replace(".json", "").replace(/_/g, " ");
-        return titulo.charAt(0).toUpperCase() + titulo.slice(1);
-    }
-
-    // Função para gerar HTML do gráfico
-    function gerarGrafico(dados, maxValor, containerId, titulo, index) {
+    function gerarGrafico(dados, containerId, titulo) {
         const container = document.getElementById(containerId);
         if (!container) return;
-    
-        // Estrutura do gráfico
-        container.innerHTML = `
-            <h4 class="grafico-titulo mb-3">${titulo}</h4>
-            <div class="grafico-container">
-                <canvas></canvas>
-            </div>
-        `;
-    
-        const ctx = container.querySelector('canvas').getContext('2d');
-        
-        // Configuração comum
-        const commonOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: index === 3,
-                    position: 'bottom',
-                    labels: { padding: 20 }
-                }
-            }
-        };
-    
-        // Restante do código de geração de gráficos permanece igual...
-    }
-    // Função para carregar dados e gerar gráficos
-    async function carregarDadosAno(ano) {
-        graficosContainer.innerHTML = `<p class="text-muted">Carregando estatísticas para ${ano}...</p>`;
 
-        try {
-            const arquivosJSON = await carregarArquivosDisponiveis(ano);
-            let conteudoGraficos = "";
+        container.innerHTML = `<h4 class="grafico-titulo mb-3">${titulo}</h4><canvas></canvas>`;
+        const canvas = container.querySelector("canvas").getContext("2d");
 
-            for (const arquivoJSON of arquivosJSON) {
-                const caminhoArquivo = `${caminhoBase}${ano}/${arquivoJSON}`;
-                const dados = await carregarDadosJSON(caminhoArquivo);
+        const labels = dados.map(item => item.Tipo);
+        const valores = dados.map(item => parseInt(item.Quantidade, 10));
+        const cores = labels.map((_, i) => `hsl(${i * 360 / labels.length}, 70%, 50%)`);
 
-                if (dados.length === 0) {
-                    console.warn(`Arquivo JSON vazio ou com erro: ${caminhoArquivo}`);
-                    continue;
-                }
-
-                const tituloGrafico = formatarTitulo(arquivoJSON);
-                conteudoGraficos += gerarGraficoHTML(tituloGrafico);
-                gerarGrafico(tituloGrafico.replace(/[^a-zA-Z0-9]/g, "_"), dados, tituloGrafico);
-            }
-
-            graficosContainer.innerHTML = conteudoGraficos;
-        } catch (erro) {
-            console.error("Erro ao carregar os dados:", erro);
-            graficosContainer.innerHTML = `<p class="text-danger">Erro ao carregar estatísticas.</p>`;
-        }
+        new Chart(canvas, {
+            type: "bar",
+            data: {
+                labels,
+                datasets: [{
+                    label: "Quantidade",
+                    data: valores,
+                    backgroundColor: cores
+                }]
+            },
+            options: { responsive: true, scales: { y: { beginAtZero: true } } }
+        });
     }
 
-    // Função principal
     async function main() {
-        const anosDisponiveis = await carregarAnosDisponiveis();
-        const anoMaisRecente = anosDisponiveis.length > 0 ? Math.max(...anosDisponiveis.map(ano => parseInt(ano))) : null;
-
-        if (anoMaisRecente && !isNaN(anoMaisRecente)) {
-            await carregarDadosAno(anoMaisRecente);
-        } else {
-            graficosContainer.innerHTML = `<p class="text-danger">Nenhum ano válido encontrado.</p>`;
+        for (let i = 0; i < csvURLs.length; i++) {
+            const csvTexto = await carregarDadosCSV(csvURLs[i]);
+            const dados = processarCSV(csvTexto);
+            gerarGrafico(dados, idsGraficos[i], titulos[i]);
         }
     }
 
-    // Inicializa o processo
     main();
 });

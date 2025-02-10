@@ -1,31 +1,35 @@
 /* Define o plano de fundo do cabeçalho */
 .header-bg {
-    background: url('data/LAYOUT_DER_001_paisagem_claro.jpg') no-repeat center center;
+    background: url('./der_layout_001_paisagem_claro.jpg') no-repeat center center;
     background-size: cover;
-    padding: 50px 0; /* Movendo para baixo */
+    padding: 50px 0;
 }
 
-/* Ajuste dos textos do cabeçalho */
-.header-title {
-    text-align: center;
-    margin-top: 20px; /* Movendo um pouco para baixo */
-}
-
-.header-title h1, .header-title h2 {
-    color: black;
-    font-family: 'Montserrat', sans-serif;
-}
-
-/* Ajuste das logos */
-.logo-sp {
+.logo-sp, .logo-der {
     height: 110px;
-    margin-left: -40px; /* Move para a esquerda */
 }
 
-.logo-der {
-    height: 120px;
-    margin-right: -40px; /* Move para a direita */
+.section-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.grafico-box {
+    height: 400px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.grafico-container {
+    width: 100%;
+    height: calc(100% - 40px);
+    position: relative;
+}
+
 
 /* Layout das seções em caixas */
 .section-box {
@@ -37,7 +41,6 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Ajuste do container dos gráficos */
 /* Grade de gráficos */
 .grafico-box {
     height: 400px;
@@ -45,7 +48,7 @@
     padding: 15px;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsividade do grid */
@@ -61,4 +64,19 @@
     width: 100%;
     height: calc(100% - 40px); /* Reserva espaço para o título */
     position: relative;
+}
+
+/* Legenda */
+.legenda-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.legenda-item {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    flex-basis: 33%; /* Três colunas de largura igual */
 }
