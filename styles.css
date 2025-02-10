@@ -73,10 +73,3 @@
     justify-content: center;
     margin-top: 10px;
 }
-
-.legenda-item {
-    display: flex;
-    align-items: center;
-    margin: 5px;
-    flex-basis: 33%; /* Três colunas de largura igual */
-}

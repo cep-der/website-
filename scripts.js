@@ -108,68 +108,97 @@ document.addEventListener("DOMContentLoaded", async function () {
         // 🔹 Agora a legenda será inserida dentro do container do gráfico
         container.appendChild(legendaContainer);
     }
+    // 🔹 Mapeamento fixo de cores baseado no Gráfico 3
+const mapaCores = {
+    "Autorização de Ocupação da Faixa de Domínio": "rgba(54, 162, 235, 0.6)", // Azul
+    "Licenciamento Ambiental": "rgba(75, 192, 192, 0.6)", // Verde
+    "Processo de Desapropriação": "rgba(255, 206, 86, 0.6)", // Amarelo
+    "Termo de Permissão Especial de Uso": "rgba(255, 159, 64, 0.6)", // Laranja
+    "Projeto de Engenharia Rodoviária": "rgba(153, 102, 255, 0.6)", // Roxo
+    "Processo Administrativo": "rgba(255, 99, 132, 0.6)", // Vermelho
+    "Contrato de Concessão Rodoviária": "rgba(0, 204, 102, 0.6)", // Verde claro
+    "Obra de Melhorias Rodoviárias": "rgba(102, 102, 255, 0.6)", // Azul claro
+    "Estudo de Impacto de Tráfego": "rgba(255, 153, 204, 0.6)", // Rosa claro
+    "Processo Judicial": "rgba(204, 102, 0, 0.6)" // Marrom claro
+};
 
-    function gerarGrafico(dados, containerId, tituloBase, graficoIndex) {
-        const container = document.getElementById(containerId);
-        if (!container) {
-            console.error(`❌ Contêiner do gráfico não encontrado: ${containerId}`);
-            return;
-        }
+// 🔹 Função para gerar cores aleatórias caso um novo tipo apareça
+function gerarCorAleatoria() {
+    const h = Math.floor(Math.random() * 360); // Gera um tom de cor aleatório
+    return `hsla(${h}, 60%, 70%, 0.6)`; // Garante tons suaves
+}
 
-        if (dados.length === 0) {
-            console.warn(`⚠️ Nenhum dado encontrado para o gráfico: ${tituloBase} ${anoDados}`);
-            container.innerHTML = `<h4 class="grafico-titulo mb-3" style="font-size: 16px;">${tituloBase} ${anoDados}</h4><p class="text-danger">⚠️ Dados indisponíveis</p>`;
-            return;
-        }
-
-        container.innerHTML = `
-            <h4 class="grafico-titulo" style="font-size: 16px; text-align: center; margin-bottom: 10px;">
-                ${tituloBase} ${anoDados}
-            </h4>
-            <canvas></canvas>
-        `;
-        const canvas = container.querySelector("canvas").getContext("2d");
-
-        let labels = dados.map(item => item.Tipo || "Desconhecido");
-        let valores = dados.map(item => parseInt(item.Quantidade, 10) || 0);
-        const cores = labels.map((_, i) => `hsl(${i * 360 / labels.length}, 70%, 50%)`);
-        const limiteSuperior = calcularLimiteSuperior(dados);
-
-        let config = {
-            type: "bar",
-            data: {
-                labels,
-                datasets: [{
-                    label: "Quantidade",
-                    data: valores,
-                    backgroundColor: cores
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        stepSize: 5,
-                        max: limiteSuperior
-                    }
-                },
-                plugins: {
-                    legend: { display: false } // Remover a legenda superior desnecessária
-                }
-            }
-        };
-
-        // 🔹 Para os gráficos 1, 2 e 3, remover os rótulos do eixo X e adicionar legenda dentro do container do gráfico
-        if (graficoIndex < 3) {
-            config.options.scales.x = { display: false };
-            new Chart(canvas, config);
-            gerarLegenda(container, labels, cores);
-            return;
-        }
-
-        new Chart(canvas, config);
+function gerarGrafico(dados, containerId, tituloBase, graficoIndex) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`❌ Contêiner do gráfico não encontrado: ${containerId}`);
+        return;
     }
+
+    if (dados.length === 0) {
+        console.warn(`⚠️ Nenhum dado encontrado para o gráfico: ${tituloBase} ${anoDados}`);
+        container.innerHTML = `<h4 class="grafico-titulo mb-3" style="font-size: 16px;">${tituloBase} ${anoDados}</h4><p class="text-danger">⚠️ Dados indisponíveis</p>`;
+        return;
+    }
+
+    container.innerHTML = `
+        <h4 class="grafico-titulo" style="font-size: 16px; text-align: center; margin-bottom: 10px;">
+            ${tituloBase} ${anoDados}
+        </h4>
+        <canvas></canvas>
+    `;
+    const canvas = container.querySelector("canvas").getContext("2d");
+
+    let labels = dados.map(item => item.Tipo || "Desconhecido");
+    let valores = dados.map(item => parseInt(item.Quantidade, 10) || 0);
+
+    // 🔹 Aplicar cores específicas para cada tipo de processo
+    const backgroundColors = labels.map(tipo => {
+        if (!mapaCores[tipo]) {
+            mapaCores[tipo] = gerarCorAleatoria(); // Atribui uma nova cor caso não exista no mapa
+        }
+        return mapaCores[tipo];
+    });
+
+    const limiteSuperior = calcularLimiteSuperior(dados);
+
+    let config = {
+        type: "bar",
+        data: {
+            labels,
+            datasets: [{
+                label: "Quantidade",
+                data: valores,
+                backgroundColor: backgroundColors // Aplicando as cores personalizadas
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    stepSize: 5,
+                    max: limiteSuperior
+                }
+            },
+            plugins: {
+                legend: { display: false } // Remover a legenda superior desnecessária
+            }
+        }
+    };
+
+    // 🔹 Para os gráficos 1, 2 e 3, remover os rótulos do eixo X e adicionar legenda dentro do container do gráfico
+    if (graficoIndex < 3) {
+        config.options.scales.x = { display: false };
+        new Chart(canvas, config);
+        gerarLegenda(container, labels, backgroundColors);
+        return;
+    }
+
+    new Chart(canvas, config);
+    }
+
+
 
     async function main() {
         console.log("🔍 Iniciando carregamento dos gráficos...");
