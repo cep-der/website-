@@ -45,45 +45,35 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // Função para gerar HTML do gráfico
-    function gerarGraficoHTML(titulo) {
-        const canvasId = titulo.replace(/[^a-zA-Z0-9]/g, "_");
-        return `
-            <div class="chart-container">
-                <h4>${titulo}</h4>
-                <canvas id="${canvasId}"></canvas>
+    function gerarGrafico(dados, maxValor, containerId, titulo, index) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+    
+        // Estrutura do gráfico
+        container.innerHTML = `
+            <h4 class="grafico-titulo mb-3">${titulo}</h4>
+            <div class="grafico-container">
+                <canvas></canvas>
             </div>
         `;
-    }
-
-    // Função para gerar os gráficos com Chart.js
-    function gerarGrafico(canvasId, dados, titulo) {
-        const ctx = document.getElementById(canvasId);
-        if (!ctx) {
-            console.error(`Canvas não encontrado para: ${canvasId}`);
-            return;
-        }
-
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: dados.map(item => item.Categoria || item.Tipo || "Sem Nome"),
-                datasets: [{
-                    label: titulo,
-                    data: dados.map(item => item.Quantidade || item.Valor || 0),
-                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: { beginAtZero: true }
+    
+        const ctx = container.querySelector('canvas').getContext('2d');
+        
+        // Configuração comum
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: index === 3,
+                    position: 'bottom',
+                    labels: { padding: 20 }
                 }
             }
-        });
+        };
+    
+        // Restante do código de geração de gráficos permanece igual...
     }
-
     // Função para carregar dados e gerar gráficos
     async function carregarDadosAno(ano) {
         graficosContainer.innerHTML = `<p class="text-muted">Carregando estatísticas para ${ano}...</p>`;

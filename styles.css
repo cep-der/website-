@@ -38,11 +38,27 @@
 }
 
 /* Ajuste do container dos gráficos */
-.chart-container {
-    margin-top: 20px;
+/* Grade de gráficos */
+.grafico-box {
+    height: 400px;
+    margin-bottom: 30px;
     padding: 15px;
-    background: #ffffff;
+    background: white;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Responsividade do grid */
+@media (max-width: 768px) {
+    .grafico-box {
+        height: 300px;
+        margin-bottom: 15px;
+    }
+}
+
+/* Container do canvas */
+.grafico-container {
+    width: 100%;
+    height: calc(100% - 40px); /* Reserva espaço para o título */
+    position: relative;
 }
