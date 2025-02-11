@@ -1,6 +1,6 @@
 /* Define o plano de fundo do cabeçalho */
 .header-bg {
-    background: url('./der_layout_001_paisagem_claro.jpg') no-repeat center center;
+    background: url('https://raw.githubusercontent.com/cep-der/website-/main/data/der_layout_001_paisagem_claro.jpg') no-repeat center center;
     background-size: cover;
     padding: 50px 0;
 }
