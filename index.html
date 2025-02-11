@@ -122,16 +122,23 @@
                 fornecendo informações estratégicas para a tomada de decisão.
             </p>
 
-            <!-- Grade 2x2 -->
+            <!-- Grade 2x2 para os gráficos -->
             <div class="row">
+                <!-- Gráfico 1: Coluna Empilhada -->
                 <div class="col-lg-6 mb-4">
                     <div class="grafico-box">
                         <canvas id="graficoColunaEmpilhada"></canvas>
                     </div>
                 </div>
+
+                <!-- Gráfico 2: Barra -->
                 <div class="col-lg-6 mb-4">
-                    <div class="grafico-box" id="grafico-2"></div>
+                    <div class="grafico-box">
+                        <canvas id="graficoBarra"></canvas> <!-- Novo gráfico adicionado -->
+                    </div>
                 </div>
+
+                <!-- Espaços para gráficos futuros -->
                 <div class="col-lg-6 mb-4">
                     <div class="grafico-box" id="grafico-3"></div>
                 </div>
@@ -146,6 +153,7 @@
         </div>
     </section>
 
+
     <!-- Seção: Contato -->
     <section id="contato" class="py-5 text-start">
         <div class="container section-box">
@@ -159,13 +167,45 @@
         <p>© 2025 Coordenadoria de Estudos e Pesquisa - DER/SP</p>
     </footer>
 
-    <!-- Carregar Chart.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+     <!-- Adicionar automaticamente gráficos de 2025 -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const pastaGraficos = "graficos/"; // Pasta onde os gráficos estão armazenados
+        const secaoEstatisticas = document.getElementById("estatisticas"); // Seção onde os gráficos serão adicionados
 
-    <!-- Carregar PapaParse para manipulação de CSV -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+        fetch(pastaGraficos) // Lista os arquivos na pasta "graficos"
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, "text/html");
+                const arquivos = Array.from(doc.querySelectorAll("a"))
+                    .map(link => link.href)
+                    .filter(nome => nome.includes("2025_") && nome.endsWith(".js")); // Filtra apenas arquivos de 2025
 
-    <!-- Carregar o script do gráfico de coluna empilhada -->
-    <script src="graficos/coluna_empilhada.js"></script>
+                arquivos.forEach(arquivo => {
+                    const nomeArquivo = arquivo.split("/").pop(); // Obtém apenas o nome do arquivo
+                    const nomeID = nomeArquivo.replace("_barra.js", ""); // Remove a extensão e "_barra.js"
+                    
+                    // Criar dinamicamente um <canvas> para o gráfico
+                    const graficoDiv = document.createElement("div");
+                    graficoDiv.classList.add("col-lg-6", "mb-4");
+
+                    const canvas = document.createElement("canvas");
+                    canvas.id = nomeID;
+                    graficoDiv.appendChild(canvas);
+
+                    // Adiciona o gráfico na seção de estatísticas
+                    secaoEstatisticas.querySelector(".row").appendChild(graficoDiv);
+
+                    // Criar dinamicamente um <script> para carregar o gráfico correspondente
+                    const script = document.createElement("script");
+                    script.src = pastaGraficos + nomeArquivo;
+                    document.body.appendChild(script);
+                });
+            })
+            .catch(error => console.error("Erro ao buscar os arquivos de gráficos:", error));
+    });
+    </script>
+
 </body>
 </html>

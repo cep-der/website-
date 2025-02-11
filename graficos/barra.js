@@ -1,13 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const ctx = document.getElementById('graficoColunaEmpilhada').getContext('2d');
-    let graficoColunaEmpilhada;
+    const ctx = document.getElementById('graficoBarra').getContext('2d');
+    let graficoBarra;
 
-    // URL do CSV (substitua para cada novo gráfico conforme necessário)
-    const csvUrl = 'https://raw.githubusercontent.com/cep-der/website-/main/data/data_stat/2023/estatisticas_da_unidade_SEIPro_processos_gerados.csv'; 
+    const csvUrl = 'https://raw.githubusercontent.com/cep-der/website-/main/data/data_stat/2023/estatisticas_da_unidade_SEIPro_processos_com_andamento_aberto_na_unidade.csv'; 
 
-    // 🔹 Definição das colunas e linhas que podem ser excluídas
-    const colunasParaExcluir = ["TOTAL", "Ago"]; // Defina aqui quais colunas não devem ser consideradas
-    const linhasParaExcluir = ["TOTAL:"]; // Defina aqui quais linhas (Tipos) não devem ser consideradas
+    const colunasParaExcluir = ["TOTAL"];
+    const linhasParaExcluir = ["TOTAL:"];
 
     const coresFixas = [
         'rgba(54, 162, 235, 0.7)', 'rgba(255, 99, 132, 0.7)', 'rgba(255, 206, 86, 0.7)',
@@ -20,15 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const ano = partesUrl[partesUrl.length - 2]; // Ano da pasta
         const nomeArquivo = partesUrl[partesUrl.length - 1]; // Nome do arquivo
 
-        // Extrai o texto entre "SEIPro_" e ".csv"
         const nomeProcesso = nomeArquivo.match(/SEIPro_(.*?)\.csv/);
         let tituloFormatado = "Estatísticas de Processos";
 
         if (nomeProcesso && nomeProcesso[1]) {
             tituloFormatado = nomeProcesso[1]
-                .replace(/_/g, ' ')  // Substitui "_" por espaço
-                .toLowerCase()        // Converte para minúsculas
-                .replace(/\b\w/g, c => c.toUpperCase()); // Primeira letra maiúscula
+                .replace(/_/g, ' ')
+                .toLowerCase()
+                .replace(/\b\w/g, c => c.toUpperCase()); 
         }
 
         return `${tituloFormatado} - ${ano}`;
@@ -59,7 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function criarGrafico(data) {
         const labels = Object.keys(data[0]).filter(key => key !== 'Tipo');
-        const tipos = data.map(row => row.Tipo).filter(tipo => tipo);
+        let tipos = data.map(row => row.Tipo).filter(tipo => tipo);
+
+        // 🔹 Remover "DER: FAIXA -" do nome dos tipos de processo
+        tipos = tipos.map(tipo => tipo.replace(/^DER: FAIXA - /, ''));
 
         const datasets = tipos.map((tipo, index) => ({
             label: tipo,
@@ -67,14 +67,22 @@ document.addEventListener("DOMContentLoaded", function () {
             backgroundColor: coresFixas[index % coresFixas.length],
             borderColor: coresFixas[index % coresFixas.length].replace('0.7', '1'),
             borderWidth: 1,
-            borderRadius: 5 // 🔹 Bordas arredondadas para um efeito moderno
+            borderRadius: 5, // 🔹 Bordas arredondadas para um efeito moderno
+            barThickness: 10, //'flex', // 🔹 Ajusta automaticamente ao tamanho do gráfico
+            maxBarThickness: 90,  // 🔹 Define um limite para evitar barras gigantes
+            categoryPercentage: 0.4, // 🔹 Controla espaçamento entre categorias
+            barPercentage: 0.1, // 🔹 Controla o espaçamento interno das barras
+            animation: {
+                duration: 1000, // 🔹 Animação suave ao carregar
+                easing: 'easeOutBounce' // 🔹 Efeito elástico para suavidade
+            }
         }));
 
-        if (graficoColunaEmpilhada) {
-            graficoColunaEmpilhada.destroy();
+        if (graficoBarra) {
+            graficoBarra.destroy();
         }
 
-        graficoColunaEmpilhada = new Chart(ctx, {
+        graficoBarra = new Chart(ctx, {
             type: 'bar',
             data: { labels, datasets },
             options: {
@@ -83,32 +91,38 @@ document.addEventListener("DOMContentLoaded", function () {
                 plugins: {
                     title: {
                         display: true,
-                        text: gerarTitulo(csvUrl), // 🔹 Usa o título gerado dinamicamente
+                        text: gerarTitulo(csvUrl), 
                         font: { size: 18 }
                     },
                     legend: {
                         display: true,
-                        position: 'bottom', // 🔹 Mantém a legenda abaixo do gráfico
+                        position: 'bottom',
                         align: 'start', // 🔹 Alinha a legenda à esquerda
                         labels: {
-                            font: { size: 14 },
-                            boxWidth: 20, // Ajuste do tamanho dos quadrados de cor
-                            padding: 10
+                            font: (context) => {
+                                let width = context.chart.width;
+                                let size = Math.round(width / 35); // 🔹 Fonte dinâmica para a legenda
+                                return { size: size > 16 ? 16 : size }; // Máximo 16px
+                            },
+                            boxWidth: 25,    // 🔹 Mantém a integridade dos retângulos da legenda
+                            boxHeight: 12,   // 🔹 Ajusta o tamanho do símbolo para retângulo
+                            padding: 8       // 🔹 Espaço entre os elementos da legenda
                         }
                     },
-                    tooltip: { enabled: true }
+                    tooltip: {
+                        enabled: true,
+                        callbacks: {
+                            title: (tooltipItems) => tooltipItems[0].dataset.label, // 🔹 Exibe o tipo do processo
+                            label: (tooltipItem) => `${tooltipItem.dataset.label}: ${tooltipItem.raw}` // 🔹 Formato "Nome do tipo: valor"
+                        }
+                    }
                 },
                 scales: {
                     x: {
-                        stacked: true,
-                        title: {
-                            display: true,
-                            text: 'Período',
-                            font: { size: 14 }
-                        }
+                        display: false, // 🔹 Remove o nome do eixo X
+                        offset: true // 🔹 Aproxima a primeira barra do eixo Y
                     },
                     y: {
-                        stacked: true,
                         title: {
                             display: true,
                             text: 'Quantidade',
@@ -118,6 +132,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             stepSize: 1
                         },
                         suggestedMax: Math.max(...datasets.flatMap(d => d.data)) * 1.1 // 🔹 Ajuste para espaçamento no topo
+                    }
+                },
+                layout: {
+                    padding: {
+                        bottom: 30  // 🔹 Define o espaço entre o eixo X e a legenda
                     }
                 }
             }
