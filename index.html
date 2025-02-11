@@ -18,14 +18,12 @@
             <a href="https://sp.gov.br/sp" target="_blank">
                 <img src="data/logo_sp_pt_slogan_horizontal.png" alt="Governo do Estado de São Paulo" class="logo-sp">
             </a>
-
             <!-- Título Centralizado -->
             <div class="header-title">
                 <h1 class="fw-bold">COORDENADORIA DE ESTUDOS E PESQUISAS</h1>
                 <h2 class="h5">DIRETORIA DE PLANEJAMENTO - DP</h2>
                 <h2 class="h5">DER/SP</h2>
             </div>
-
             <!-- Logo do DER (Direita) -->
             <a href="https://www.der.sp.gov.br/WebSite/Index.aspx" target="_blank">
                 <img src="data/logo_der.png" alt="DER-SP" class="logo-der">
@@ -80,7 +78,7 @@
     <section id="equipe" class="py-5 text-start">
         <div class="container section-box">
             <h2 class="text-start mb-4">EQUIPE</h2>
-            <p>Conheça nossa equipe de especialistas em estudos e pesquisas rodoviárias.</p>
+            <p>A CEP é composta por uma equipe multidisciplinar altamente qualificada, reunindo profissionais especializados em segurança viária, engenharia de tráfego, resiliência climática, sensoriamento remoto, geoprocessamento e cartografia digital. Essa diversidade de conhecimento permite uma abordagem abrangente e integrada no desenvolvimento de estudos e projetos, garantindo soluções mais eficientes e inovadoras para a infraestrutura rodoviária do Estado de São Paulo. A sinergia entre essas áreas fortalece a capacidade da CEP de enfrentar desafios complexos e propor melhorias estratégicas, sempre com foco na segurança, sustentabilidade e eficiência do transporte.</p>
             <!-- Adicione aqui os membros da equipe -->
         </div>
     </section>
@@ -112,47 +110,26 @@
         </div>
     </section>
 
-    <!-- Seção: Estatísticas -->
     <section id="estatisticas" class="py-5 text-start">
         <div class="container section-box">
             <h2 class="text-start mb-4">ESTATÍSTICAS</h2>
+            <p>A Coordenadoria de Estudos e Pesquisa (CEP) realiza análises detalhadas sobre processos e projetos rodoviários, fornecendo informações estratégicas para a tomada de decisão.</p>
             
-            <p>
-                A Coordenadoria de Estudos e Pesquisa (CEP) realiza análises detalhadas sobre processos e projetos rodoviários, 
-                fornecendo informações estratégicas para a tomada de decisão.
-            </p>
-
-            <!-- Grade 2x2 para os gráficos -->
-            <div class="row">
-                <!-- Gráfico 1: Coluna Empilhada -->
-                <div class="col-lg-6 mb-4">
-                    <div class="grafico-box">
-                        <canvas id="graficoColunaEmpilhada"></canvas>
-                    </div>
-                </div>
-
-                <!-- Gráfico 2: Barra -->
-                <div class="col-lg-6 mb-4">
-                    <div class="grafico-box">
-                        <canvas id="graficoBarra"></canvas> <!-- Novo gráfico adicionado -->
-                    </div>
-                </div>
-
-                <!-- Espaços para gráficos futuros -->
-                <div class="col-lg-6 mb-4">
-                    <div class="grafico-box" id="grafico-3"></div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="grafico-box" id="grafico-4"></div>
-                </div>
+            <!-- Gráficos organizados em uma única coluna, ocupando toda a largura -->
+            <div class="grafico-box mb-4 w-100">
+                <canvas id="2025_processos_com_andamento_aberto_na_cep_barra"></canvas>
             </div>
-
-            <div class="text-center mt-4">
-                <a href="mais_estatisticas.html" class="btn btn-primary">Mais estatísticas</a>
+            <div class="grafico-box mb-4 w-100">
+                <canvas id="2025_processos_com_andamento_fechado_na_cep_barra"></canvas>
+            </div>
+            <div class="grafico-box mb-4 w-100">
+                <canvas id="2025_processos_com_tramitacao_barra"></canvas>
+            </div>
+            <div class="grafico-box mb-4 w-100">
+                <canvas id="2025_tempo_medio_tramitacao_barra"></canvas>
             </div>
         </div>
     </section>
-
 
     <!-- Seção: Contato -->
     <section id="contato" class="py-5 text-start">
@@ -167,45 +144,14 @@
         <p>© 2025 Coordenadoria de Estudos e Pesquisa - DER/SP</p>
     </footer>
 
-     <!-- Adicionar automaticamente gráficos de 2025 -->
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const pastaGraficos = "graficos/"; // Pasta onde os gráficos estão armazenados
-        const secaoEstatisticas = document.getElementById("estatisticas"); // Seção onde os gráficos serão adicionados
+    <!-- Scripts necessários -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="graficos/2025_processos_com_andamento_aberto_na_cep_barra.js"></script>
+    <script src="graficos/2025_processos_com_andamento_fechado_na_cep_barra.js"></script>
+    <script src="graficos/2025_processos_com_tramitacao_barra.js"></script>
+    <script src="graficos/2025_tempo_medio_tramitacao_barra.js"></script>
 
-        fetch(pastaGraficos) // Lista os arquivos na pasta "graficos"
-            .then(response => response.text())
-            .then(data => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(data, "text/html");
-                const arquivos = Array.from(doc.querySelectorAll("a"))
-                    .map(link => link.href)
-                    .filter(nome => nome.includes("2025_") && nome.endsWith(".js")); // Filtra apenas arquivos de 2025
-
-                arquivos.forEach(arquivo => {
-                    const nomeArquivo = arquivo.split("/").pop(); // Obtém apenas o nome do arquivo
-                    const nomeID = nomeArquivo.replace("_barra.js", ""); // Remove a extensão e "_barra.js"
-                    
-                    // Criar dinamicamente um <canvas> para o gráfico
-                    const graficoDiv = document.createElement("div");
-                    graficoDiv.classList.add("col-lg-6", "mb-4");
-
-                    const canvas = document.createElement("canvas");
-                    canvas.id = nomeID;
-                    graficoDiv.appendChild(canvas);
-
-                    // Adiciona o gráfico na seção de estatísticas
-                    secaoEstatisticas.querySelector(".row").appendChild(graficoDiv);
-
-                    // Criar dinamicamente um <script> para carregar o gráfico correspondente
-                    const script = document.createElement("script");
-                    script.src = pastaGraficos + nomeArquivo;
-                    document.body.appendChild(script);
-                });
-            })
-            .catch(error => console.error("Erro ao buscar os arquivos de gráficos:", error));
-    });
-    </script>
-
+    
 </body>
 </html>

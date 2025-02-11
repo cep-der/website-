@@ -78,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     legend: {
                         display: true,
                         position: 'bottom',
-                        align: 'start',
                         labels: {
                             font: (context) => {
                                 let width = context.chart.width;
@@ -114,11 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         },
                         suggestedMax: Math.max(...datasets.flatMap(d => d.data)) * 1.1
                     }
-                },
-                layout: {
-                    padding: {
-                        bottom: 30
-                    }
                 }
             }
         });
@@ -126,4 +120,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     carregarDadosCSV(csvUrl, criarGrafico);
 });
-        
