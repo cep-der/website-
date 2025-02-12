@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const ctx = document.getElementById('2025_processos_com_tramitacao_barra').getContext('2d');
     let grafico;
 
-    const csvUrl = 'data/data_stat/2025/estatisticas_da_unidade_SEIPro_processos_com_tramitacao.csv';
+    const csvUrl = 'https://raw.githubusercontent.com/cep-der/website-/main/data/data_stat/2025/estatisticas_da_unidade_SEIPro_processos_com_tramitacao.csv';
 
     function carregarDadosCSV(url, callback) {
         Papa.parse(url, {

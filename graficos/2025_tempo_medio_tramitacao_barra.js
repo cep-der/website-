@@ -3,7 +3,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const ctx = document.getElementById('2025_tempo_medio_tramitacao_barra').getContext('2d');
     let grafico;
 
-    const csvUrl = 'data/data_stat/2025/estatisticas_da_unidade_SEIPro_tempo_medio_tramitacao.csv';
+    const csvUrl = 'https://raw.githubusercontent.com/cep-der/website-/main/data/data_stat/2025/estatisticas_da_unidade_SEIPro_tempo_medio_tramitacao.csv';
+
+    function converterParaDias(duracao) {
+        const partes = duracao.split(' ');
+        let dias = parseInt(partes[0]) || 0;
+
+        if (partes.length > 1) {
+            const [horas, minutos, segundos] = partes[1].split(':').map(n => parseInt(n) || 0);
+            dias += horas / 24 + minutos / 1440 + segundos / 86400;
+        }
+
+        return dias;
+    }
 
     function carregarDadosCSV(url, callback) {
         Papa.parse(url, {
@@ -19,11 +31,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 data = data.map(row => {
-                    if (row.Tipo) {
-                        row.Tipo = row.Tipo.replace(/^DER: FAIXA - /, '');
+                    if (row.Tipo && row.Duração) {
+                        row.Duração = converterParaDias(row.Duração);
                     }
                     return row;
                 });
+
+                data.sort((a, b) => b.Duração - a.Duração);
 
                 callback(data);
             },
@@ -34,30 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function criarGrafico(data) {
-        const labels = Object.keys(data[0]).filter(key => key !== 'Tipo');
-        const tipos = data.map(row => row.Tipo).filter(tipo => tipo);
-
-        const coresFixas = [
-            'rgba(54, 162, 235, 0.7)', 'rgba(255, 99, 132, 0.7)', 'rgba(255, 206, 86, 0.7)',
-            'rgba(75, 192, 192, 0.7)', 'rgba(153, 102, 255, 0.7)', 'rgba(255, 159, 64, 0.7)'
-        ];
-
-        const datasets = tipos.map((tipo, index) => ({
-            label: tipo,
-            data: labels.map(label => data[index][label] || 0),
-            backgroundColor: coresFixas[index % coresFixas.length],
-            borderColor: coresFixas[index % coresFixas.length].replace('0.7', '1'),
-            borderWidth: 1,
-            borderRadius: 5,
-            barThickness: 'flex',
-            maxBarThickness: 80,
-            categoryPercentage: 0.8,
-            barPercentage: 0.9,
-            animation: {
-                duration: 1000,
-                easing: 'easeOutBounce'
-            }
-        }));
+        const labels = data.map(row => row.Tipo);
+        const valores = data.map(row => row.Duração);
 
         if (grafico) {
             grafico.destroy();
@@ -65,58 +57,73 @@ document.addEventListener("DOMContentLoaded", function () {
 
         grafico = new Chart(ctx, {
             type: 'bar',
-            data: { labels, datasets },
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Duração Média (dias)',
+                    data: valores,
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    borderRadius: 5,
+                    barThickness: 'flex',
+                    maxBarThickness: 30
+                }]
+            },
             options: {
+                indexAxis: 'y',
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
                     title: {
                         display: true,
-                        text: '2025 TEMPO MEDIO TRAMITACAO',
+                        text: 'Tempo Médio de Tramitação dos Processos (Atualizado)',
                         font: { size: 18 }
                     },
                     legend: {
                         display: true,
                         position: 'bottom',
-                        align: 'start',
                         labels: {
-                            font: (context) => {
-                                let width = context.chart.width;
-                                let size = Math.round(width / 35);
-                                return { size: size > 16 ? 16 : size };
-                            },
-                            boxWidth: 25,
-                            boxHeight: 12,
+                            font: { size: 12 },
+                            boxWidth: 20,
                             padding: 8
                         }
                     },
                     tooltip: {
                         enabled: true,
                         callbacks: {
-                            title: (tooltipItems) => tooltipItems[0].dataset.label,
-                            label: (tooltipItem) => `${tooltipItem.dataset.label}: ${tooltipItem.raw}`
+                            label: (tooltipItem) => ` ${tooltipItem.raw.toFixed(2)} dias`
                         }
                     }
                 },
                 scales: {
                     x: {
-                        display: false,
-                        offset: true
+                        title: {
+                            display: true,
+                            text: 'Duração (dias)',
+                            font: { size: 14 }
+                        },
+                        ticks: {
+                            stepSize: 5
+                        }
                     },
                     y: {
                         title: {
                             display: true,
-                            text: 'Quantidade',
+                            text: 'Processo',
                             font: { size: 14 }
                         },
                         ticks: {
-                            stepSize: 1
-                        },
-                        suggestedMax: Math.max(...datasets.flatMap(d => d.data)) * 1.1
+                            autoSkip: false,
+                            maxRotation: 0,
+                            font: { size: 12 }
+                        }
                     }
                 },
                 layout: {
                     padding: {
+                        left: 20,
+                        right: 20,
                         bottom: 30
                     }
                 }
@@ -126,4 +133,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     carregarDadosCSV(csvUrl, criarGrafico);
 });
-        
