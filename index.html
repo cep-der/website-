@@ -12,13 +12,33 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+
+    <header id="topbarGlobal">
+        <div class="govsp-container">
+            <!-- Logo do Governo -->
+            <div class="govsp-logo">
+                <img src="data/logo-governo-do-estado-sp.png" alt="Governo do Estado de São Paulo">
+            </div>
+               
+            <!-- Botões de Acessibilidade -->
+            <div class="govsp-acessibilidade">
+                <button class="govsp-zoom-in">
+                    <img src="data/i-big-font.png" alt="Aumentar fonte">
+                </button>
+                <button class="govsp-zoom-out">
+                    <img src="data/i-small-font.png" alt="Diminuir fonte">
+                </button>
+                <button class="govsp-contraste">
+                    <img src="data/i-contrast.png" alt="Alto contraste">
+                </button>
+            </div>
+        </div>
+    </header>
+    
+
     <!-- Cabeçalho com Logos -->
     <header class="header-bg text-center py-4">
         <div class="container d-flex justify-content-between align-items-center">
-            <!-- Logo do Estado (Esquerda) -->
-            <a href="https://sp.gov.br/sp" target="_blank">
-                <img src="data/logo_sp_pt_slogan_horizontal.png" alt="Governo do Estado de São Paulo" class="logo-sp">
-            </a>
             <!-- Título Centralizado -->
             <div class="header-title">
                 <h1 class="fw-bold mb-2">COORDENADORIA DE ESTUDOS E PESQUISAS</h1>
@@ -32,26 +52,42 @@
         </div>
     </header>
 
-    <!-- Menu de Navegação -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="#">DER/SP</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#sobre">Quem Somos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#eventos">Eventos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#estatisticas">Estatísticas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-                </ul>
-            </div>
+<!-- Menu de Navegação -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- Bloco do Nome DER/SP -->
+        <div class="navbar-brand-container">
+            <a class="navbar-brand" href="#">
+                <span class="der-title">DER/SP</span>
+                <span class="der-subtitle">Departamento de Estradas de Rodagem</span>
+            </a>
         </div>
-    </nav>
+
+        <!-- Botão de alternância para mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Itens do menu -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#sobre">Quem Somos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#eventos">Eventos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#estatisticas">Estatísticas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+            </ul>
+        </div>
+
+        <!-- Logo do DER (Alinhada à Direita) -->
+        <a href="https://www.der.sp.gov.br/WebSite/Index.aspx" target="_blank" class="navbar-logo">
+            <img src="data/logo_der.png" alt="DER-SP" class="logo-der">
+        </a>
+    </div>
+</nav>
 
     <!-- Seção: Quem Somos -->
     <section id="sobre" class="py-5 bg-light text-start">

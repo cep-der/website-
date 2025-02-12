@@ -1,0 +1,37 @@
+<style>
+/* Container da marca DER/SP */
+.navbar-brand-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Estiliza DER/SP com fonte maior */
+.der-title {
+    font-size: 1.5rem; /* Aumenta o tamanho de DER/SP */
+    font-weight: bold;
+    display: block;
+}
+
+/* Formatação do subtítulo */
+.der-subtitle {
+    font-size: 0.9rem; /* Tamanho menor para subtítulo */
+    color: #ccc;
+    display: block;
+}
+
+/* Ajusta a logo do DER-SP à direita */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-der {
+    height: 40px; /* Ajuste conforme necessário */
+    transition: opacity 0.3s;
+}
+
+.logo-der:hover {
+    opacity: 0.8;
+}
+</style>

@@ -1,0 +1,586 @@
+.barra_padrao_sp_mobile, .barra_padrao_sp_mobile_internas {
+    display: none;
+}
+
+/*============== BARRA PADÃO SP [10%] ==============*/
+.barra_padrao_sp {
+    height: 9.7%;
+    height: auto;
+}
+
+.sem_padding_left_top {
+    padding-left: 0px !important;
+}
+
+.new_barra_gov_sp_2019 {
+    background-color: #014fa1;
+    height: 84px;
+}
+
+.border_shadow_barra_top {
+    /*border-bottom: 1px solid #000;*/
+}
+
+.link_portal_gov {
+}
+
+    .link_portal_gov a {
+        font-size: 12px;
+        color: Black;
+        font-weight: bold;
+    }
+
+        .link_portal_gov a:hover {
+            color: #069;
+        }
+
+.img_barra_2019 {
+    margin-right: 238px;
+}
+
+    .img_barra_2019 img {
+        height: 79px;
+        display: none;
+    }
+
+.rodape_repeat {
+    background: #fafafa url('/WebSite/img/barra2019/rodape_repeat.jpg');
+    background-repeat: repeat-x;
+}
+
+.sem_padding_footer {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 998;
+    display: none;
+    background: url("../img/overlay.png") repeat;
+}
+/* F: CONTENT */
+
+
+/* HOME */
+.home {
+    text-align: center;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 35px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+    border-radius: 0px;
+}
+
+.carousel-indicators .active {
+    width: 35px;
+    height: 10px;
+    margin: 1px;
+    border: none;
+    background-color: #4FC0C0;
+}
+/* F: HOME */
+
+/* MENU */
+
+.carousel-control.right, .carousel-control.left {
+    width: 8%;
+}
+
+.menu_right li {
+    padding: 0;
+    float: left;
+}
+
+.menu_lef_padrao span {
+    font-size: 1.3em;
+}
+
+.menu_right li a {
+    /*color: #fff;*/
+    color: #000;
+    /*font-size: 1.3em;*/
+    padding: 9px;
+    /*text-decoration: none;*/
+}
+
+    .menu_right li a:hover {
+        border: none;
+        color: #014fa1;
+    }
+
+.bk_menu_right {
+    /*background-color: #454547;*/
+    /*background-color: #F8F9F2;*/
+    /*background-color: #F8F9F2;*/
+    /*height: 50px;*/
+    /*line-height: 31px;*/
+    /*width: 87.99999999% !important;*/
+    /*width: 88%;*/
+    width: 100%;
+}
+
+.menu_fulid_right {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.logoHome {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 12%;
+    height: 42px;
+    /*height: 50px;*/
+}
+
+/*.menu_ul li a:hover {*/
+/*color: #FFF;*/
+/*}
+
+.novomenu li a {
+    color: #000;
+}
+
+    .novomenu li a:hover {*/
+/*color: #069;*/
+/*}
+
+.dropdown-menu > li > a:hover {
+    background-color: #F8F9F2;
+}*/
+
+.menu-aberto {
+    display: block;
+    z-index: 999;
+    width: 290px;
+    position: fixed;
+    left: -490px;
+    height: 100%;
+    background: #fff;
+    box-shadow: 1px 0px 23px #000;
+    overflow: hidden;
+    top: 0;
+}
+
+    .menu-aberto ul li a:hover, .menu-aberto ul li a:active {
+        /*background: #2a2a2a !important;*/
+        display: block;
+        color: #777;
+        font-size: 1.4em;
+        /*text-decoration: none;*/
+    }
+
+    .menu-aberto ul li a, .menu-aberto ul li a:visited {
+        padding: 10px;
+        width: 100%;
+        display: block;
+        border-bottom: 1px solid #2a2a2a;
+        /*color: #666;*/
+        font-size: 1.4em;
+        /*text-decoration: none;*/
+    }
+
+    /*.menu-aberto .logo
+{
+    color: #666;
+    margin-bottom: 25px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.menu-aberto .logo img
+{
+    width: 40%;
+    margin-top: 15px;
+    margin-left: 15%;
+}*/
+
+    .menu-aberto .voltar {
+        float: left;
+        margin: 60px 20px 0px 10px;
+    }
+
+.menu-android {
+    position: relative;
+    float: left;
+    display: none;
+}
+
+.menu_paginas_internas {
+    position: fixed;
+    border-radius: 4px;
+    margin-top: 35px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 11.5%;
+    margin-bottom: 30px;
+    box-shadow: 0px -2px 12px #999;
+    margin-left: -15px;
+}
+
+.img_logo {
+    /*margin-top: 8px;*/
+    background-color: #F8F9F2;
+}
+
+.menu_fixed {
+    position: fixed;
+}
+/*.linha_menu
+{
+    height: 8.4%; 
+}*/
+/* I: MENU ONLINE */
+
+/* F: MENU */
+.comum_servico_online {
+    border: 1px solid #808080;
+    background-color: #f5eeee;
+    height: 15%;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 35px;
+}
+
+.borda_bottom {
+    border-bottom: 1px solid #ccc;
+}
+
+.tituloMenuOnline {
+    padding: 45px 10px 0px 0px;
+}
+
+.logo_mobile {
+    display: none;
+}
+
+/* F: MENU ONLINE */
+
+/* RESPONSIVO */
+
+@media screen and (max-width: 768px) {
+
+    .carouselHome p {
+        display: none;
+    }
+
+    .carouselHome h3 {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+
+    .conteudo_home_mobile {
+        display: block !important;
+    }
+
+    .logo_tipo_mobile {
+        display: block !important;
+    }
+
+    .govsph-links {
+        margin-top: 50px !important;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .carouselHome {
+        bottom: 2% !important;
+    }
+
+    .indicadoresHome {
+        margin-bottom: 9% !important;
+    }
+}
+
+/*@media only screen and (max-width: 990px) {
+    .iconeALL {
+        display: none;
+    }
+
+    .menu_lef_padrao {
+        padding: 15px 0px 15px 0px;
+    }
+}*/
+
+@media only screen and (min-width: 1440px) {
+    .new_barra_gov_sp_2019 {
+        height: 84px;
+    }
+}
+
+
+@media only screen and (min-width: 2560px) {
+    .new_barra_gov_sp_2019 {
+        height: 84px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .rodape_repeat {
+        width: 60%;
+        float: left;
+    }
+
+    .new_barra_gov_sp_2019 {
+        display: none;
+    }
+
+    .img_barra_2019 {
+        margin-right: 0px;
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+
+    .link_portal_gov {
+        display: none;
+    }
+
+        .link_portal_gov a {
+        }
+
+    #divMapa {
+        display: none;
+    }
+
+    .esconder_mobile {
+        display: none;
+    }
+
+        .esconder_mobile p {
+            display: none;
+        }
+
+    .margin_mobile_cameras {
+        margin-bottom: 50px;
+    }
+
+    .menu_left_online {
+        height: 100% !important;
+    }
+
+    .borda_bottom {
+        border-bottom: none !important;
+    }
+
+    .conteudo_home_banner i {
+        font-size: 18px !important;
+    }
+
+    .logo_der_right {
+        display: none !important;
+    }
+
+    .logo_tipo_mobile img {
+        width: 100%;
+    }
+
+    .conteudo_home_banner {
+        font-size: 18px !important;
+    }
+
+    .icone_mobile {
+        font-size: 1em !important;
+    }
+
+    .menu_online_mobile_A {
+        padding: 11px 0px 11px 0px !important;
+    }
+
+    .conteudo_home_banner {
+        height: 91%;
+    }
+
+    .sem_padding_rigth_mobile {
+        padding-right: 0px;
+    }
+
+    .conteudo_home_mobile {
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .margin_texto_bottom {
+        margin-bottom: 60px !important;
+    }
+
+    .conteudo_home {
+        height: auto;
+    }
+
+    .rodape_paginas_internas {
+        background: #eee;
+    }
+
+    .logo_mobile {
+        background: #454547;
+        margin-bottom: -5px;
+        margin-top: -15px;
+        padding: 10px;
+    }
+
+    .carouselHome {
+        margin-bottom: -250px !important;
+    }
+
+    .img_mobile {
+        margin-top: 0px;
+    }
+
+    .logoHome {
+        float: left;
+    }
+
+    .logo_mobile {
+        display: block;
+    }
+
+    .conteudo_home_right {
+        width: 100%;
+    }
+
+    .logoHome {
+        border-right: 0px solid orange;
+    }
+
+    .menu_left_online, .menu_left_servico_rapido, .logoPadrao {
+        display: none;
+    }
+
+    .conteudo_servico_rapido {
+        border-left: none !important;
+    }
+
+    .logotipo {
+        margin-top: -14px;
+    }
+
+    .barra_padrao_sp_mobile {
+        display: block;
+    }
+
+    .barra_padrao_sp {
+        display: none;
+    }
+
+
+    .menu-android {
+        display: table;
+        color: #fff;
+        margin-left: 20px;
+    }
+
+    /*.menu_right, .bk_menu_right {
+        display: none;
+    }*/
+
+    h1, .h1 {
+        font-size: 2em;
+    }
+
+    h3, .h3 {
+        font-size: 1.3em;
+    }
+
+    .icone-m, .img_mini_casamento {
+        margin-top: 10px;
+    }
+
+    .menu {
+        margin-top: 0px;
+        background: #fff;
+        width: 100%;
+        padding: 15px;
+    }
+
+        .menu .logo-menu {
+            width: auto;
+            margin-left: 10%;
+            height: 30px;
+        }
+
+    .banner_home {
+        margin-left: 0px; /*margin-top: 20px;*/
+    }
+
+    .indicadoresHome {
+        margin-bottom: 0px !important;
+    }
+
+    body {
+        padding-bottom: 0;
+    }
+
+    .paginas_internas_geral {
+        width: 100%;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .conteudo_servico_rapido {
+        width: 100% !important;
+    }
+
+    .rodape_paginas_internas {
+        width: 100%;
+    }
+
+
+    .conteudo_home_banner {
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 100% !important;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .footer .direitos-autorais-mobile {
+        display: none;
+    }
+}
+
+
+@media screen and (min-device-width: 481px) and (max-device-width: 1701px) {
+    .carouselHome {
+        bottom: 2% !important;
+    }
+
+    .indicadoresHome {
+        margin-bottom: 9% !important;
+    }
+}
+
+
+
+@media only screen and (min-width: 2560px) {
+    .carouselHome {
+        bottom: 21% !important;
+    }
+
+    .indicadoresHome {
+        margin-bottom: 16% !important;
+    }
+
+    .carouselHome p {
+        font-size: 20px;
+    }
+}
+
+/* F: RESPONSIVO */
+

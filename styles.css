@@ -1,3 +1,75 @@
+/* Configuração da Barra Superior */
+#topbarGlobal {
+    background-color: black; /* Fundo preto */
+    padding: 8px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Container da Barra */
+.govsp-container {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Logo do Governo */
+.govsp-logo img {
+    height: 40px;
+}
+
+/* Seção das Redes Sociais */
+.govsp-redes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.govsp-icon img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.govsp-icon img:hover {
+    opacity: 1;
+}
+
+.govsp-text {
+    font-size: 14px;
+    color: gray;
+    text-decoration: none;
+}
+
+/* Posicionamento dos botões de acessibilidade no canto superior direito */
+.govsp-acessibilidade {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.govsp-acessibilidade button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.govsp-acessibilidade button img {
+    width: 24px;
+    height: 24px;
+}
+
+.govsp-acessibilidade button:hover {
+    opacity: 0.7;
+}
+
+
+
 /* Define o plano de fundo do cabeçalho */
 .header-bg {
     background: url('https://raw.githubusercontent.com/cep-der/website-/main/data/der_layout_001_paisagem_claro.jpg') no-repeat center center;

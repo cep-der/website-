@@ -1,0 +1,155 @@
+.contrast,
+.contrast nav,
+.contrast div,
+.contrast li,
+.contrast ol,
+.contrast header,
+.contrast footer,
+.contrast section,
+.contrast main,
+.contrast aside,
+.contrast article {
+    background: black !important;
+    color: white !important;
+}
+
+.contrast h1,
+.contrast h2,
+.contrast h3,
+.contrast h4,
+.contrast h5,
+.contrast h6,
+.contrast p,
+.contrast label,
+.contrast strong,
+.contrast em,
+.contrast cite,
+.contrast q,
+.contrast i,
+.contrast b,
+.contrast u,
+.contrast a,
+.contrast span {
+    color: white !important;
+}
+
+/*.contrast a{
+    color: yellow !important;
+}*/
+
+.contrast button,
+.contrast input[type=button],
+.contrast input[type=reset],
+.contrast input[type=submit] {
+    background: black !important;
+    color: yellow !important;
+    border: none !important;
+}
+
+.contrast img.on-contrast-force-gray {
+    filter: grayscale(100%) contrast(120%);
+}
+
+.contrast img.on-contrast-force-white {
+    filter: brightness(0) invert(1);
+}
+
+.contrast input[type=text],
+.contrast input[type=password],
+.contrast input[type=url],
+.contrast input[type=search],
+.contrast input[type=email],
+.contrast input[type=tel],
+.contrast input[type=date],
+.contrast input[type=month],
+.contrast input[type=week],
+.contrast input[type=datetime],
+.contrast input[type=datetime-local],
+.contrast textarea,
+.contrast input[type=number] {
+    background: black !important;
+    border: 1px solid white !important;
+    color: white !important;
+}
+
+.contrast div#topbarLink {
+    background: #fff!important;
+}
+
+.contrast .govsp-portal {
+    background: #fff!important;
+}
+
+.contrast .govsp-portal img[src*="https://saopaulo.sp.gov.br/barra-govsp/img/logo-governo-do-estado-sp.png"] {
+    background: url(https://saopaulo.sp.gov.br/barra-govsp/img/logo-governo-do-estado-sp-negativo-1.png) no-repeat!important;
+    content: url(https://saopaulo.sp.gov.br/barra-govsp/img/logo-governo-do-estado-sp-negativo-1.png);
+}
+.contrast #govsp-topbarGlobal.blu-e #topbarLink a {
+    color: #111!important;
+}
+
+@media only screen and (min-width: 769px) {
+.contrast div#govsp-topbarGlobal div#topbarGlobal #topbarLink {
+     background-repeat: no-repeat!important;
+    background-position: right!important;
+    }
+}
+
+
+.contrast .govsp-link {
+    color: #fff!important;
+    border: 1px solid;
+}
+
+.contrast img.govsp-icon-social {
+    filter: brightness(100);
+}
+
+.contrast img.govsp-icon-social:hover {
+    box-shadow: none;
+}
+
+.contrast img.govsp-acessibilidade {
+    filter: brightness(100);
+}
+
+.contrast .govsp-portal {
+    width: 250px!important;
+}
+
+.contrast a.govsph-links-governo {
+    color: #fff;
+}
+
+.contrast img.govsph-icon-social {
+    filter: brightness(100);
+}
+
+.contrast p.govsph-pasta {
+    background: #fff!important;
+    color: #111!important;
+    width: 320px;
+    padding-right: 130px;
+    padding-top: 14px;
+    padding-bottom: 0px;
+    margin-top: -14px;
+    height: 80px;
+    background-repeat: no-repeat!important;
+    background-position: right!important;
+}
+
+.contrast div#govsph-topbarGlobal div#topbarGlobal {
+    border: 1px solid #fff;
+}
+
+.contrast .govsph-logo {
+    background: url(https://saopaulo.sp.gov.br/barra-govsp/img/logo-sp-negativo.png) no-repeat!important;
+}
+
+.contrast .govsph-oneline {
+    padding-top: 20px!important;
+}
+
+.contrast a.govsp-links-footer {
+    color: #fff;
+}
