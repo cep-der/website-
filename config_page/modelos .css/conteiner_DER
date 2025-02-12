@@ -1,4 +1,4 @@
-<style>
+
 /* Container da marca DER/SP */
 .navbar-brand-container {
     display: flex;
@@ -34,4 +34,4 @@
 .logo-der:hover {
     opacity: 0.8;
 }
-</style>
+

@@ -1,4 +1,6 @@
-/* Configuração da Barra Superior */
+/* =======================
+   1. CONFIGURAÇÃO DA BARRA SUPERIOR (TOPO)
+   ======================= */
 #topbarGlobal {
     background-color: black; /* Fundo preto */
     padding: 8px 15px;
@@ -8,7 +10,7 @@
     width: 100%;
 }
 
-/* Container da Barra */
+/* Container interno da barra superior */
 .govsp-container {
     width: 95%;
     display: flex;
@@ -17,18 +19,20 @@
     position: relative;
 }
 
-/* Logo do Governo */
+/* Logo do Governo do Estado de São Paulo */
 .govsp-logo img {
-    height: 40px;
+    height: 50px;
 }
 
-/* Seção das Redes Sociais */
+
+/* Seção das redes sociais na barra superior */
 .govsp-redes {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
+/* Ícones das redes sociais */
 .govsp-icon img {
     width: 24px;
     height: 24px;
@@ -40,13 +44,14 @@
     opacity: 1;
 }
 
+/* Texto ao lado dos ícones das redes sociais */
 .govsp-text {
     font-size: 14px;
     color: gray;
     text-decoration: none;
 }
 
-/* Posicionamento dos botões de acessibilidade no canto superior direito */
+/* Botões de acessibilidade no canto superior direito */
 .govsp-acessibilidade {
     display: flex;
     gap: 10px;
@@ -69,6 +74,9 @@
 }
 
 
+/* =======================
+   2. CONFIGURAÇÃO DO CABEÇALHO (HEADER)
+   ======================= */
 
 /* Define o plano de fundo do cabeçalho */
 .header-bg {
@@ -77,66 +85,80 @@
     padding: 30px 20px; /* Adicionado padding lateral */
 }
 
-/* Contêiner flexível para as logos */
+/* Contêiner flexível para as logos dentro do cabeçalho */
 .logo-container {
     display: flex;
-    justify-content: space-between; /* Move as logos para as bordas */
+    justify-content: space-between; /* Move as logos para as extremidades */
     align-items: center;
-    padding: 0 50px; /* Ajuste de espaço */
+    padding: 0 50px; /* Espaçamento lateral */
 }
 
-/* Ajuste do tamanho das logos */
+/* Ajuste do tamanho das logos do cabeçalho */
 .logo-sp, .logo-der {
-    height: 140px; /* Aumentado */
+    height: 140px; /* Tamanho das logos aumentado */
 }
 
-/* Centraliza os títulos corretamente */
+/* Centraliza os títulos no cabeçalho */
 .header-title {
     text-align: center;
     flex: 1; /* Garante que ocupe o espaço central */
 }
 
 .header-title h1 {
-    font-size: 2.2rem; /* Maior destaque */
+    font-size: 2.2rem; /* Maior destaque para o título principal */
     font-weight: bold;
 }
 
 .header-title h2 {
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* Subtítulo menor */
 }
 
-/* Ajuste do Menu de Navegação */
+
+/* =======================
+   3. MENU DE NAVEGAÇÃO
+   ======================= */
 .navbar {
     padding: 10px 30px;
 }
 
+/* Ajusta a marca "DER/SP" para a esquerda */
 .navbar-brand {
-    margin-right: auto; /* Move "DER/SP" para a esquerda */
+    margin-right: auto;
 }
 
+/* Move os itens do menu para a direita */
 .navbar-nav {
-    margin-left: auto; /* Move os itens do menu para a direita */
+    margin-left: auto;
 }
 
-/* Ajuste da largura dos contêineres */
+
+/* =======================
+   4. CONFIGURAÇÃO DO CONTEÚDO PRINCIPAL
+   ======================= */
+
+/* Define a largura máxima dos contêineres de conteúdo */
 .container {
-    max-width: 55%; /* Ajustado para melhor proporção */
+    max-width: 55%; /* Ajustado para uma proporção ideal */
     margin: 0 auto;
     padding: 0 40px;
 }
 
-/* Layout das seções */
+/* Caixa de seção para os conteúdos principais */
 .section-box {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.95); /* Fundo branco com transparência */
     padding: 18px;
     border-radius: 8px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Sombra sutil */
     margin-bottom: 20px;
     font-family: 'Lato', sans-serif;
-    font-size: 0.95rem; /* Redução do tamanho da fonte */
+    font-size: 0.95rem; /* Texto levemente reduzido */
 }
 
-/* Ajuste responsivo */
+
+/* =======================
+   5. AJUSTES PARA RESPONSIVIDADE
+   ======================= */
+
 @media (max-width: 992px) {
     .container {
         max-width: 70%;
@@ -144,25 +166,29 @@
 }
 
 @media (max-width: 768px) {
+    /* Ajusta o tamanho do contêiner para telas menores */
     .container {
         max-width: 95%;
         padding: 0 20px;
     }
-    
+
     .section-box {
         padding: 15px;
     }
 
+    /* Reorganiza as logos no cabeçalho para dispositivos menores */
     .logo-container {
         flex-direction: column;
         gap: 10px;
         align-items: center;
     }
-    
+
+    /* Reduz o tamanho das logos */
     .logo-sp, .logo-der {
-        height: 110px; /* Ajuste para telas menores */
+        height: 110px;
     }
 
+    /* Reduz os tamanhos dos títulos no cabeçalho */
     .header-title h1 {
         font-size: 1.8rem;
     }
