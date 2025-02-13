@@ -1,3 +1,10 @@
+.menu-toggle {
+    display: block !important;
+    max-height: 100vh !important;
+    overflow: visible !important;
+}
+
+
 .titulogeral {
     color: #495057 !important;
     text-decoration: none;

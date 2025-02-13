@@ -2,13 +2,17 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>COORDENADORIA DE ESTUDOS E PESQUISAS</title>
+    
+    <!-- Estilos e Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="graficos/graficos.css">
+    <link rel="stylesheet" href="config_page/modelos_css/linha_menu.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <style>
         .header-bg {
             background: url('data/CAPA_DER_001_paisagem_claro.jpg') no-repeat center center;
@@ -19,6 +23,7 @@
     </style>
 </head>
 <body>
+
     <!-- Barra do Governo de São Paulo -->
     <div class="row border_shadow_barra_top">
         <section class="govsp-topo"> 
@@ -29,7 +34,7 @@
                     <div id="topbarLink" class="govsp-black">
                         <div class="govsp-portal">
                             <a href="http://www.saopaulo.sp.gov.br/">
-                                <img src="https://saopaulo.sp.gov.br/barra-govsp/img/logo-governo-do-estado-sp.png" alt="Governo do Estado de São Paulo" height="38" class="logo">
+                                <img src="https://saopaulo.sp.gov.br/barra-govsp/img/logo-governo-do-estado-sp.png" alt="Governo do Estado de São Paulo" height="48" class="logo">
                             </a>
                         </div>
                     </div>
@@ -50,24 +55,40 @@
     </header>
 
     <!-- Novo Menu de Navegação -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="#sobre">Quem Somos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#eventos">Eventos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#estatisticas">Estatísticas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-                </ul>
-            </div>
+    <div class="col-md-12 col-xs-12 img_logo" style="padding:0px">           
+        <div class="nav__container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+                <div class="container-fluid">
+                    <!-- Logo -->
+                    <a class="navbar-brand titulogeral" href="/WebSite/Index.aspx">
+                        <span class="titulo1">DER-SP</span>                    
+                        <span class="titulo2">Departamento de Estradas de Rodagem</span>
+                    </a>
+
+                    <!-- Botão Mobile -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Menu -->
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item"><a class="nav-link" href="#sobre">Quem Somos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#eventos">Eventos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#estatisticas">Estatísticas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
-    </nav>
+    </div>
+
+ 
 
     <!-- Seção: Quem Somos -->
     <section id="sobre" class="py-5 bg-light text-start">
@@ -162,6 +183,12 @@
     </footer>
 
     <!-- Scripts -->
+    <script>
+        document.querySelector(".nav-toggle").addEventListener("click", function () {
+            document.querySelector(".menu-toggle").classList.toggle("active");
+        });
+    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="config_page/scripts/bootstrap-cep.js"></script>
 </body>
