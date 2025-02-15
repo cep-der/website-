@@ -1,470 +1,1451 @@
-<div class="row linha_menu">
-                      
-    <link rel="stylesheet" href="config_page/modelos .css/linha_menu.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>COORDENADORIA DE ESTUDOS E PESQUISAS</title>
     
-    <div class="col-md-12 col-xs-12 img_logo" style="padding:0px">           
-        <div class="nav__container">
-            <div class="nav__mobile">
-                <a class="titulogeral" href="/WebSite/Index.aspx">
-                    <span class="titulo1">DER-SP</span>                    
-                    <span class="titulo2">Departamento de Estradas de Rodagem</span>
-                </a>
-                <div class="nav__btn">
-                    <a aria-label="Mobile menu" class="nav-toggle fade"><span></span><span class="mrg"></span><span class="mrg"></span></a>
+    <!-- Estilos e Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="graficos/graficos.css">
+    <link rel="stylesheet" href="config_page/modelos_css/linha_menu.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        .header-bg {
+            background: url('data/CAPA_DER_001_paisagem_claro.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra do Governo de São Paulo -->
+    <div class="container-fluid containr_geral">
+        ::before
+        <div class="row border_shadow_barra_top">
+            ::before
+            <section class="govsp-topo">
+                <link rel="stylesheet" type="text/css" href="https://saopaulo.sp.gov.br/barra-govsp/css/topo-padrao-govsp.min.css">
+                <link rel="stylesheet" type="text/css" href="https://saopaulo.sp.gov.br/barra-govsp/css/barra-contraste-govsp.min.css">  
+                <div id="govsp-topbarGlobal" class="blu-e">
+                    <div id="topbarGlobal">
+                        <div id="topbarLink" class="govsp-black">
+                            <div class="govsp-portal">
+                                <a href="http://www.saopaulo.sp.gov.br/">
+                                    <img src="https://saopaulo.sp.gov.br/barra-govsp/img/logo-governo-do-estado-sp.png" alt="Governo do Estado de São Paulo" height="48" class="logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>               
-                <nav class="menu-toggle">
-                    <ul class="nav__menu">
-    
+            </section>
+            ::after
+            </div>
+            <div class="row linha_menu">
+                ::before
+                <style>
+                    .titulogeral {
+                        color: #495057 !important;
+                        text-decoration: none;
+                    }
+                
+                    .titulogeral a:hover {
+                        /*color: #034EA2;*/
+                        color: #fafafa;
+                        text-decoration: none;
+                    }
+                
+                    .titulo1 {
+                        font-family: 'Inter', sans-serif;
+                        font-weight: 800;
+                        line-height: 1.1;
+                        font-size: 33px;
+                    }
+                
+                    .titulo2 {
+                        text-align: left;
+                        display: block;
+                        width: 160px;
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                
+                    .nav__container,header {
+                    width: 100%;
+                    background-color: #fafafa
+                }
+                
+                .nav__container {
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                    flex-direction: column;
+                    -webkit-box-pack: justify;
+                    -ms-flex-pack: justify;
+                    justify-content: space-between;
+                    -webkit-box-align: stretch;
+                    -ms-flex-align: stretch;
+                    align-items: stretch;
+                    padding: 15px;
+                }
+                
+                .nav__mobile .nav__btn {
+                    display: block
+                }
+                
+                .nav__mobile {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-pack: justify;
+                    -ms-flex-pack: justify;
+                    justify-content: space-between;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center
+                }
+                
+                .nav__logo {
+                    font-size: 1.4rem;
+                    font-weight: 700;
+                    color: #555
+                }
+                
+                .nav__menu {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                    flex-direction: column;
+                    overflow: hidden;
+                    z-index: 999;
+                    position: relative;
+                }
+                
+                .showing {
+                    max-height: 37rem;
+                    -webkit-transition: all .5s;
+                    transition: all .5s
+                }
+                
+                .nav__menu li {
+                    list-style: none;
+                    position: relative;
+                    white-space: nowrap;
+                    padding: 1rem 0 0
+                }
+                
+                .nav__menu li a {
+                    display: block;
+                    font-size: 1.4rem;
+                    color: #222;
+                    text-decoration: none
+                }
+                
+                .nav-toggle {
+                    display: block;
+                    background-color: transparent;
+                    width: 40px;
+                    cursor: pointer;
+                    padding: 4px;
+                    opacity: 1;
+                }
+                
+                .nav-toggle span {
+                    position: relative;
+                    display: block;
+                    height: 4px;
+                    border-radius: 35px;
+                    width: 100%;
+                    margin-top: 0;
+                    background-color: #000;
+                    -webkit-transition: all .25s;
+                    transition: all .25s
+                }
+                
+                .nav-toggle span.mrg {
+                    margin-top: 5px
+                }
+                
+                .nav-toggle.open span:first-child {
+                    -webkit-transform: rotate(45deg) translate(6.2px,6.2px);
+                    transform: rotate(45deg) translate(6.2px,6.2px)
+                }
+                
+                .nav-toggle.open span:nth-child(2) {
+                    width: 0;
+                    opacity: 0
+                }
+                
+                .nav-toggle.open span:last-child {
+                    -webkit-transform: rotate(-45deg) translate(6.2px,-6.2px);
+                    transform: rotate(-45deg) translate(6.2px,-6.2px)
+                }
+                
+                .nav__menu .dropdown ul {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                    flex-direction: column;
+                    position: static;
+                    padding: 0;
+                    max-height: 0;
+                    overflow: hidden;
+                    -webkit-transition: all .4s;
+                    transition: all .4s
+                }
+                
+                .nav__menu .dropdown ul.show {
+                    max-height: 100rem;
+                    -webkit-transition: all .4s;
+                    transition: all .4s
+                }
+                
+                .nav__menu .dropdown li a {
+                    display: block;    
+                    text-transform: capitalize;
+                    color: #222;
+                    text-decoration: none
+                }
+                
+                .nav__menu li a:hover {
+                    color: #0062a3
+                }
+                
+                .nav__menu .dropdown>a:after {
+                    content: "\f107";
+                    /*font-family: Font Awesome\ 5 Free;*/
+                    font: normal normal normal 14px/1 FontAwesome;
+                    font-weight: 900;
+                    font-size: .875rem;
+                    padding-left: 5px;
+                    color: #7e7e7e
+                }
+                
+                .nav__menu .active.dropdown>a:after {
+                    content: "\f106";
+                }
+                
+                .nav__menu .dropdown .dropdown>a:after {
+                    content: "\f107";
+                    /*font-family: Font Awesome\ 5 Free;*/
+                    font: normal normal normal 14px/1 FontAwesome;
+                    font-weight: 900;
+                    font-size: .875rem;
+                    padding-left: 5px;
+                    color: #7e7e7e
+                }
+                
+                .nav__menu .dropdown .active.dropdown>a:after {
+                    content: "\f106";
+                }
+                
+                .menu-toggle {
+                    max-height: 0;
+                    overflow: hidden
+                }
+                
+                .menu-toggle,.menu-toggle.active {
+                    -webkit-transition: all .4s ease;
+                    transition: all .4s ease
+                }
+                
+                .menu-toggle.active {
+                    max-height: 100vh
+                }
+                
+                .resize-animation-stopper * {
+                    -webkit-transition: none!important;
+                    transition: none!important;
+                    -webkit-animation: none!important;
+                    animation: none!important
+                }
+                
+                @media screen and (min-width: 800px) {
+                    .menu-toggle {
+                        display:-webkit-box!important;
+                        display: -ms-flexbox!important;
+                        display: flex!important;
+                        max-height: 100vh;
+                        overflow: visible
+                    }
+                
+                    .nav__container {
+                        width: 100%;        
+                        margin: auto;
+                        -webkit-box-orient: horizontal;
+                        -webkit-box-direction: normal;
+                        -ms-flex-direction: row;
+                        flex-direction: row;
+                        padding: 10px 40px 10px 40px;
+                    }
+                
+                    .nav__container,.nav__mobile {
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-pack: justify;
+                        -ms-flex-pack: justify;
+                        justify-content: space-between;
+                        -webkit-box-align: center;
+                        -ms-flex-align: center;
+                        align-items: center
+                    }
+                
+                    .nav__mobile .nav__btn {
+                        display: none
+                    }
+                
+                    .nav__logo img {
+                        width: 100%;
+                        max-width: 58px
+                    }
+                
+                    .nav__menu {
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-orient: horizontal;
+                        -webkit-box-direction: normal;
+                        -ms-flex-direction: row;
+                        flex-direction: row;
+                        max-height: 100%;
+                        overflow: visible
+                    }
+                
+                    .nav__menu li {
+                        list-style: none;
+                        position: relative;
+                        white-space: nowrap;
+                        padding: 1rem
+                    }
+                
+                    .nav__menu li a {
+                        font-size: 1.4rem;
+                        color: #222;
+                        text-decoration: none
+                    }
+                
+                    .nav__menu li a:hover {
+                        color: #0062a3
+                    }
+                
+                    .nav__menu .dropdown {
+                        position: relative
+                    }
+                
+                    .nav__menu .dropdown ul {
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-orient: vertical;
+                        -webkit-box-direction: normal;
+                        -ms-flex-direction: column;
+                        flex-direction: column;
+                        position: absolute;
+                        top: 100%;
+                        left: -30px;
+                        opacity: 0;
+                        visibility: hidden;
+                        /*overflow: visible;*/
+                        padding: 0 1rem;
+                        -webkit-transition: all .4s ease;
+                        transition: all .4s ease
+                    }
+                
+                    .nav__menu .dropdown:hover>ul {
+                        top: 100%;
+                        left: 0;
+                        opacity: 1;
+                        visibility: visible;
+                        overflow: visible;
+                        padding: 0 1rem
+                    }
+                
+                    .nav__menu .dropdown ul li {
+                        padding: 1.5rem;
+                        /*background-color: #034EA2;*/
+                        background-color: #fafafa;
+                        position: relative
+                    }
+                
+                    .nav__menu .dropdown ul li:hover {
+                        background-color: #3493e0
+                    }
+                
+                    .nav__menu .dropdown ul li a {
+                        display: block;
+                        color: #000;
+                        text-transform: capitalize
+                    }
+                
+                    .nav__menu .dropdown ul li a:hover {
+                        display: block;
+                        color: #c7e0f5
+                    }
+                
+                    .nav__menu .dropdown:hover>a:after,.nav__menu .dropdown>a:after {
+                        /*font-family: Font Awesome\ 5 Free;*/
+                        font: normal normal normal 14px/1 FontAwesome;
+                        font-weight: 900;
+                        font-size: .875rem;
+                        padding-left: 5px;
+                        color: #7c7c7c
+                    }
+                
+                    .nav__menu .dropdown:hover>a:after {
+                        content: "\f106"
+                    }
+                
+                    .nav__menu .dropdown .dropdown>a:after {
+                        content: "\f105"
+                    }
+                
+                    .nav__menu .dropdown .dropdown:hover>a:after {
+                        content: "\f104"        
+                    }
+                
+                    .nav__menu .dropdown>a:after {
+                        content: "\f107"
+                    }
+                
+                    .nav__menu .dropdown .dropdown:hover>a:after,.nav__menu .dropdown .dropdown>a:after {
+                        /*font-family: Font Awesome\ 5 Free;*/
+                        font: normal normal normal 14px/1 FontAwesome;
+                        font-weight: 900;
+                        font-size: .875rem;
+                        padding-left: 10px;
+                        color: #000;
+                    }
+                
+                    .nav__menu .dropdown .dropdown:hover>ul {
+                        position: absolute;
+                        top: 0;
+                        left: calc(102% - 17px);
+                        right: auto;
+                        opacity: 1;
+                        visibility: visible
+                    }
+                
+                    .nav__menu .dropdown .dropdown ul {
+                        position: absolute;
+                        top: 0;
+                        left: calc(102% - 17px);
+                        right: auto;
+                        opacity: 0;
+                        visibility: hidden;
+                        -webkit-transition: all .4s ease-in-out;
+                        transition: all .4s ease-in-out
+                    }
+                }
+                
+                </style>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+                <div class="col-md-12 col-xs-12 img_logo" style="padding:0px">           
+                    <div class="nav__container">
+                        <div class="nav__mobile">
+                            <a class="titulogeral" href="/WebSite/Index.aspx">
+                                <span class="titulo1">DER-SP</span>                    
+                                <span class="titulo2">Departamento de Estradas de Rodagem</span>
+                            </a>
+                            <div class="nav__btn">
+                                <a aria-label="Mobile menu" class="nav-toggle fade"><span></span><span class="mrg"></span><span class="mrg"></span></a>
+                            </div>
+                                <a aria-label="Mobile menu" class="nav-toggle fade"><span></span><span class="mrg"></span><span class="mrg"></span></a>
+                                <span></span>
+                                <span class="mrg"></span>
+                                <span class="mrg"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Menu iterativo -->               
+                     <nav class="menu-toggle">
+                        <ul class="nav__menu">
+                            <li class="dropdown"><a href="#"><b>INSTITUCIONAL</b></a>
+                                <ul>                         
+                                    <li class="dropdown second-level"><a href="#">DER</a>
+                                        <ul>
+                                            <li><a href="/WebSite/Institucional/MissaoDER.aspx">Missão</a></li>
+                                            <li><a href="/WebSite/Institucional/Marca.aspx">Marca</a></li>
+                                            <li><a href="/WebSite/Institucional/MemoriaTransporte.aspx">Memória do Transporte</a></li>                                    
+                                            <li><a href="/WebSite/Institucional/RelacaoSuperintendentesDER.aspx">Relação de Superintendente</a></li>                                  
+                                        </ul>
+                                    </li>
+        
+                                    
+        
+                                    
+                                    <li><a href="http://www.der.sp.gov.br/WebSite/arquivos/Institucional/ORGANOGRAMA.pdf">ORGANOGRAMA DO DER</a></li>                            
+        
+                                    <li class="dropdown second-level"><a href="#">QUEM É QUEM</a>
+                                        <ul>
+                                            <li><a href="/WebSite/Institucional/Sede.aspx">Sede</a></li>
+                                            <li><a href="/WebSite/Institucional/DivisoesRegionais.aspx">Divisões Regionais</a></li>                                      
+                                        </ul>
+                                    </li>                            
+                                    <li class="dropdown second-level"><a href="#">INTEGRIDADE</a>
+                                        <ul>
+                                            <li><a href="/WebSite/Arquivos/INSTITUCIONAL/Carta_Compromisso.pdf">Carta de Compromisso</a></li>
+                                            <li><a href="/WebSite/Arquivos/INSTITUCIONAL/CODIGO_DE_CONDUTA_ETICA_V_FINAL.pdf">Código de Conduta Ética</a></li>
+                                            <li><a href="/WebSite/Arquivos/INSTITUCIONAL/Programa_Integridade.pdf">Programa de Integridade</a></li>                                    
+                                        </ul>
+                                    </li>
+                                    <li><a href="/WebSite/Agenda/Index.aspx">AGENDA DO SUPERINTENDENTE</a></li>
+                                    <li class="dropdown second-level"><a href="#">LEGISLAÇÃO</a>
+                                        <ul>
+                                            <li><a href="http://www.der.sp.gov.br/WebSite/arquivos/Institucional/Legislacao_Institucional.pdf">Institucional</a></li>                                    
+                                            <li><a href="http://www.der.sp.gov.br/WebSite/arquivos/Institucional/regimento_interno.pdf">Regimento Interno</a></li>  
+                                            <li><a href="http://200.144.30.104/der/portarias/PortariasViewDownload.asp">Portaria</a></li>                                                                     
+                                        </ul>
+                                    </li>
+                                    <li><a href="/WebSite/Contatos/ContatoGeral.aspx">HORÁRIO DE ATENDIMENTO, ENDEREÇO E TELEFONE</a></li>
+                                    <li><a href="/WebSite/Institucional/CartaServico.aspx">CARTA DE SERVIÇOS</a></li>
+                                    <li><a href="https://servicos.sp.gov.br/search/?csrfmiddlewaretoken=FkqoBJTOc3EkpepHt3z9BKanHL1Re3Wu2A94OSdYjtW6JFDabFPMpIJL7ue7jDmg&amp;q=Departamento+de+Estradas+de+Rodagem">PORTAL DE SERVIÇOS AO CIDADÃO</a></li>                            
+                                    <li><a href="/WebSite/BoletimAdministrativo/Boletins.aspx">BOLETIM ADMINISTRATIVO</a></li>  
+                                </ul>
+                            </li>
+                                                        
+                                </ul>
+                    </nav>
+                    <!-- Menu -->
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item"><a class="nav-link" href="#sobre">Quem Somos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#eventos">Eventos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#estatisticas">Estatísticas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                        </ul>
+                    </div>
+                        <img src="https://www.der.sp.gov.br/WebSite/img/logoDER.png" class="img-responsive logo-menu logoPadrao" alt="Logo Tipo do DERSP" style="width: 150px;">
+                    </div>     
+                
+                </div>
+
+                        <style>
+                            .titulogeral {
+                                color: #495057 !important;
+                                text-decoration: none;
+                            }
                         
-    
-                       <li class="dropdown"><a href="#"><b>INSTITUCIONAL</b></a>
-                            <ul>                         
-                                <li class="dropdown second-level"><a href="#">DER</a>
-                                    <ul>
-                                        <li><a href="/WebSite/Institucional/MissaoDER.aspx">Missão</a></li>
-                                        <li><a href="/WebSite/Institucional/Marca.aspx">Marca</a></li>
-                                        <li><a href="/WebSite/Institucional/MemoriaTransporte.aspx">Memória do Transporte</a></li>                                    
-                                        <li><a href="/WebSite/Institucional/RelacaoSuperintendentesDER.aspx">Relação de Superintendente</a></li>                                  
-                                    </ul>
-                                </li>
-    
-                                
-    
-                                
-                                <li><a href="http://www.der.sp.gov.br/WebSite/arquivos/Institucional/ORGANOGRAMA.pdf">ORGANOGRAMA DO DER</a></li>                            
-    
-                                <li class="dropdown second-level"><a href="#">QUEM É QUEM</a>
-                                    <ul>
-                                        <li><a href="/WebSite/Institucional/Sede.aspx">Sede</a></li>
-                                        <li><a href="/WebSite/Institucional/DivisoesRegionais.aspx">Divisões Regionais</a></li>                                      
-                                    </ul>
-                                </li>                            
-                                <li class="dropdown second-level"><a href="#">INTEGRIDADE</a>
-                                    <ul>
-                                        <li><a href="/WebSite/Arquivos/INSTITUCIONAL/Carta_Compromisso.pdf">Carta de Compromisso</a></li>
-                                        <li><a href="/WebSite/Arquivos/INSTITUCIONAL/CODIGO_DE_CONDUTA_ETICA_V_FINAL.pdf">Código de Conduta Ética</a></li>
-                                        <li><a href="/WebSite/Arquivos/INSTITUCIONAL/Programa_Integridade.pdf">Programa de Integridade</a></li>                                    
-                                    </ul>
-                                </li>
-                                <li><a href="/WebSite/Agenda/Index.aspx">AGENDA DO SUPERINTENDENTE</a></li>
-                                <li class="dropdown second-level"><a href="#">LEGISLAÇÃO</a>
-                                    <ul>
-                                        <li><a href="http://www.der.sp.gov.br/WebSite/arquivos/Institucional/Legislacao_Institucional.pdf">Institucional</a></li>                                    
-                                        <li><a href="http://www.der.sp.gov.br/WebSite/arquivos/Institucional/regimento_interno.pdf">Regimento Interno</a></li>  
-                                        <li><a href="http://200.144.30.104/der/portarias/PortariasViewDownload.asp">Portaria</a></li>                                                                     
-                                    </ul>
-                                </li>
-                                <li><a href="/WebSite/Contatos/ContatoGeral.aspx">HORÁRIO DE ATENDIMENTO, ENDEREÇO E TELEFONE</a></li>
-                                <li><a href="/WebSite/Institucional/CartaServico.aspx">CARTA DE SERVIÇOS</a></li>
-                                <li><a href="https://servicos.sp.gov.br/search/?csrfmiddlewaretoken=FkqoBJTOc3EkpepHt3z9BKanHL1Re3Wu2A94OSdYjtW6JFDabFPMpIJL7ue7jDmg&amp;q=Departamento+de+Estradas+de+Rodagem">PORTAL DE SERVIÇOS AO CIDADÃO</a></li>                            
-                                <li><a href="/WebSite/BoletimAdministrativo/Boletins.aspx">BOLETIM ADMINISTRATIVO</a></li>  
-                            </ul>
-                        </li>
+                            .titulogeral a:hover {
+                                /*color: #034EA2;*/
+                                color: #fafafa;
+                                text-decoration: none;
+                            }
                         
+                            .titulo1 {
+                                font-family: 'Inter', sans-serif;
+                                font-weight: 800;
+                                line-height: 1.1;
+                                font-size: 33px;
+                            }
                         
-    
-                        <li class="dropdown"><a href="#"><b>CANAIS DE COMUNICAÇÃO</b></a>
-                            <ul>                        
-                                <li class="dropdown second-level"><a href="#">OUVIDORIA</a>
-                                    <ul>
-                                        <li><a href="/Website/Contatos/Ouvidoria.aspx">Ouvidoria DER</a></li>
-                                        <li><a href="/WebSite/Contatos/RelAtendOuvidoria.aspx">Relatórios de Atendimento</a></li>                                      
-                                    </ul>
-                                </li>                            
-                                <li><a href="/Website/Contatos/Sic.aspx">SERVIÇOS DE INFORMAÇÕES AO CIDADÃO - SIC</a></li>
-                                <li><a href="/WebSite/Contatos/LGPD.aspx">PRIVACIDADE E PROTEÇÃO DE DADOS - LGPD</a></li>
-                                <li class="dropdown second-level"><a href="#">IMPRENSA</a>
-                                    <ul>
-                                        <li><a href="/WebSite/Servicos/Informacoes/CampanhaEducativa.aspx">Campanhas Educativas</a></li>
-                                        <li><a href="/WebSite/Contatos/ContatoImprensa.aspx">Contatos</a></li>
-                                        <li><a href="/WebSite/Comunicacao/SalaImprensa.aspx">Notícias</a></li>                                      
-                                    </ul>
-                                </li>                          
-                                <li><a href="/Website/Contatos/PerguntasFrequentes.aspx">PERGUNTAS FREQUENTES</a></li>
-                                <li><a href="/WebSite/Comunicacao/Conselho.aspx">CONSELHO DE USUÁRIOS</a></li>
-                            </ul>
-                        </li>
+                            .titulo2 {
+                                text-align: left;
+                                display: block;
+                                width: 160px;
+                                font-size: 14px;
+                                font-weight: 400;
+                            }
                         
+                            .nav__container,header {
+                            width: 100%;
+                            background-color: #fafafa
+                        }
                         
-                        <li><a href="/WebSite/Servicos/ServicosOnline/MultasOnline.aspx"><b>MULTAS E RECURSOS</b></a></li>
-    
+                        .nav__container {
+                            -webkit-box-orient: vertical;
+                            -webkit-box-direction: normal;
+                            -ms-flex-direction: column;
+                            flex-direction: column;
+                            -webkit-box-pack: justify;
+                            -ms-flex-pack: justify;
+                            justify-content: space-between;
+                            -webkit-box-align: stretch;
+                            -ms-flex-align: stretch;
+                            align-items: stretch;
+                            padding: 15px;
+                        }
+                        
+                        .nav__mobile .nav__btn {
+                            display: block
+                        }
+                        
+                        .nav__mobile {
+                            display: -webkit-box;
+                            display: -ms-flexbox;
+                            display: flex;
+                            -webkit-box-pack: justify;
+                            -ms-flex-pack: justify;
+                            justify-content: space-between;
+                            -webkit-box-align: center;
+                            -ms-flex-align: center;
+                            align-items: center
+                        }
+                        
+                        .nav__logo {
+                            font-size: 1.4rem;
+                            font-weight: 700;
+                            color: #555
+                        }
+                        
+                        .nav__menu {
+                            display: -webkit-box;
+                            display: -ms-flexbox;
+                            display: flex;
+                            -webkit-box-orient: vertical;
+                            -webkit-box-direction: normal;
+                            -ms-flex-direction: column;
+                            flex-direction: column;
+                            overflow: hidden;
+                            z-index: 999;
+                            position: relative;
+                        }
+                        
+                        .showing {
+                            max-height: 37rem;
+                            -webkit-transition: all .5s;
+                            transition: all .5s
+                        }
+                        
+                        .nav__menu li {
+                            list-style: none;
+                            position: relative;
+                            white-space: nowrap;
+                            padding: 1rem 0 0
+                        }
+                        
+                        .nav__menu li a {
+                            display: block;
+                            font-size: 1.4rem;
+                            color: #222;
+                            text-decoration: none
+                        }
+                        
+                        .nav-toggle {
+                            display: block;
+                            background-color: transparent;
+                            width: 40px;
+                            cursor: pointer;
+                            padding: 4px;
+                            opacity: 1;
+                        }
+                        
+                        .nav-toggle span {
+                            position: relative;
+                            display: block;
+                            height: 4px;
+                            border-radius: 35px;
+                            width: 100%;
+                            margin-top: 0;
+                            background-color: #000;
+                            -webkit-transition: all .25s;
+                            transition: all .25s
+                        }
+                        
+                        .nav-toggle span.mrg {
+                            margin-top: 5px
+                        }
+                        
+                        .nav-toggle.open span:first-child {
+                            -webkit-transform: rotate(45deg) translate(6.2px,6.2px);
+                            transform: rotate(45deg) translate(6.2px,6.2px)
+                        }
+                        
+                        .nav-toggle.open span:nth-child(2) {
+                            width: 0;
+                            opacity: 0
+                        }
+                        
+                        .nav-toggle.open span:last-child {
+                            -webkit-transform: rotate(-45deg) translate(6.2px,-6.2px);
+                            transform: rotate(-45deg) translate(6.2px,-6.2px)
+                        }
+                        
+                        .nav__menu .dropdown ul {
+                            display: -webkit-box;
+                            display: -ms-flexbox;
+                            display: flex;
+                            -webkit-box-orient: vertical;
+                            -webkit-box-direction: normal;
+                            -ms-flex-direction: column;
+                            flex-direction: column;
+                            position: static;
+                            padding: 0;
+                            max-height: 0;
+                            overflow: hidden;
+                            -webkit-transition: all .4s;
+                            transition: all .4s
+                        }
+                        
+                        .nav__menu .dropdown ul.show {
+                            max-height: 100rem;
+                            -webkit-transition: all .4s;
+                            transition: all .4s
+                        }
+                        
+                        .nav__menu .dropdown li a {
+                            display: block;    
+                            text-transform: capitalize;
+                            color: #222;
+                            text-decoration: none
+                        }
+                        
+                        .nav__menu li a:hover {
+                            color: #0062a3
+                        }
+                        
+                        .nav__menu .dropdown>a:after {
+                            content: "\f107";
+                            /*font-family: Font Awesome\ 5 Free;*/
+                            font: normal normal normal 14px/1 FontAwesome;
+                            font-weight: 900;
+                            font-size: .875rem;
+                            padding-left: 5px;
+                            color: #7e7e7e
+                        }
+                        
+                        .nav__menu .active.dropdown>a:after {
+                            content: "\f106";
+                        }
+                        
+                        .nav__menu .dropdown .dropdown>a:after {
+                            content: "\f107";
+                            /*font-family: Font Awesome\ 5 Free;*/
+                            font: normal normal normal 14px/1 FontAwesome;
+                            font-weight: 900;
+                            font-size: .875rem;
+                            padding-left: 5px;
+                            color: #7e7e7e
+                        }
+                        
+                        .nav__menu .dropdown .active.dropdown>a:after {
+                            content: "\f106";
+                        }
+                        
+                        .menu-toggle {
+                            max-height: 0;
+                            overflow: hidden
+                        }
+                        
+                        .menu-toggle,.menu-toggle.active {
+                            -webkit-transition: all .4s ease;
+                            transition: all .4s ease
+                        }
+                        
+                        .menu-toggle.active {
+                            max-height: 100vh
+                        }
+                        
+                        .resize-animation-stopper * {
+                            -webkit-transition: none!important;
+                            transition: none!important;
+                            -webkit-animation: none!important;
+                            animation: none!important
+                        }
+                        
+                        @media screen and (min-width: 800px) {
+                            .menu-toggle {
+                                display:-webkit-box!important;
+                                display: -ms-flexbox!important;
+                                display: flex!important;
+                                max-height: 100vh;
+                                overflow: visible
+                            }
+                        
+                            .nav__container {
+                                width: 100%;        
+                                margin: auto;
+                                -webkit-box-orient: horizontal;
+                                -webkit-box-direction: normal;
+                                -ms-flex-direction: row;
+                                flex-direction: row;
+                                padding: 10px 40px 10px 40px;
+                            }
+                        
+                            .nav__container,.nav__mobile {
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+                                -webkit-box-pack: justify;
+                                -ms-flex-pack: justify;
+                                justify-content: space-between;
+                                -webkit-box-align: center;
+                                -ms-flex-align: center;
+                                align-items: center
+                            }
+                        
+                            .nav__mobile .nav__btn {
+                                display: none
+                            }
+                        
+                            .nav__logo img {
+                                width: 100%;
+                                max-width: 58px
+                            }
+                        
+                            .nav__menu {
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+                                -webkit-box-orient: horizontal;
+                                -webkit-box-direction: normal;
+                                -ms-flex-direction: row;
+                                flex-direction: row;
+                                max-height: 100%;
+                                overflow: visible
+                            }
+                        
+                            .nav__menu li {
+                                list-style: none;
+                                position: relative;
+                                white-space: nowrap;
+                                padding: 1rem
+                            }
+                        
+                            .nav__menu li a {
+                                font-size: 1.4rem;
+                                color: #222;
+                                text-decoration: none
+                            }
+                        
+                            .nav__menu li a:hover {
+                                color: #0062a3
+                            }
+                        
+                            .nav__menu .dropdown {
+                                position: relative
+                            }
+                        
+                            .nav__menu .dropdown ul {
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+                                -webkit-box-orient: vertical;
+                                -webkit-box-direction: normal;
+                                -ms-flex-direction: column;
+                                flex-direction: column;
+                                position: absolute;
+                                top: 100%;
+                                left: -30px;
+                                opacity: 0;
+                                visibility: hidden;
+                                /*overflow: visible;*/
+                                padding: 0 1rem;
+                                -webkit-transition: all .4s ease;
+                                transition: all .4s ease
+                            }
+                        
+                            .nav__menu .dropdown:hover>ul {
+                                top: 100%;
+                                left: 0;
+                                opacity: 1;
+                                visibility: visible;
+                                overflow: visible;
+                                padding: 0 1rem
+                            }
+                        
+                            .nav__menu .dropdown ul li {
+                                padding: 1.5rem;
+                                /*background-color: #034EA2;*/
+                                background-color: #fafafa;
+                                position: relative
+                            }
+                        
+                            .nav__menu .dropdown ul li:hover {
+                                background-color: #3493e0
+                            }
+                        
+                            .nav__menu .dropdown ul li a {
+                                display: block;
+                                color: #000;
+                                text-transform: capitalize
+                            }
+                        
+                            .nav__menu .dropdown ul li a:hover {
+                                display: block;
+                                color: #c7e0f5
+                            }
+                        
+                            .nav__menu .dropdown:hover>a:after,.nav__menu .dropdown>a:after {
+                                /*font-family: Font Awesome\ 5 Free;*/
+                                font: normal normal normal 14px/1 FontAwesome;
+                                font-weight: 900;
+                                font-size: .875rem;
+                                padding-left: 5px;
+                                color: #7c7c7c
+                            }
+                        
+                            .nav__menu .dropdown:hover>a:after {
+                                content: "\f106"
+                            }
+                        
+                            .nav__menu .dropdown .dropdown>a:after {
+                                content: "\f105"
+                            }
+                        
+                            .nav__menu .dropdown .dropdown:hover>a:after {
+                                content: "\f104"        
+                            }
+                        
+                            .nav__menu .dropdown>a:after {
+                                content: "\f107"
+                            }
+                        
+                            .nav__menu .dropdown .dropdown:hover>a:after,.nav__menu .dropdown .dropdown>a:after {
+                                /*font-family: Font Awesome\ 5 Free;*/
+                                font: normal normal normal 14px/1 FontAwesome;
+                                font-weight: 900;
+                                font-size: .875rem;
+                                padding-left: 10px;
+                                color: #000;
+                            }
+                        
+                            .nav__menu .dropdown .dropdown:hover>ul {
+                                position: absolute;
+                                top: 0;
+                                left: calc(102% - 17px);
+                                right: auto;
+                                opacity: 1;
+                                visibility: visible
+                            }
+                        
+                            .nav__menu .dropdown .dropdown ul {
+                                position: absolute;
+                                top: 0;
+                                left: calc(102% - 17px);
+                                right: auto;
+                                opacity: 0;
+                                visibility: hidden;
+                                -webkit-transition: all .4s ease-in-out;
+                                transition: all .4s ease-in-out
+                            }
+                        }
+                        
+                        </style>
+                        
+                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+                        
+                        <div class="col-md-12 col-xs-12 img_logo" style="padding:0px">           
+                            <div class="nav__container">
+                                <div class="nav__mobile">
+                                    <a class="titulogeral" href="/WebSite/Index.aspx">
+                                        <span class="titulo1">DER-SP</span>                    
+                                        <span class="titulo2">Departamento de Estradas de Rodagem</span>
+                                    </a>
+                                    <div class="nav__btn">
+                                        <a aria-label="Mobile menu" class="nav-toggle fade"><span></span><span class="mrg"></span><span class="mrg"></span></a>
+                                    </div>
+                                </div>               
+                                    <nav class="menu-toggle">
+                                        <ul class="nav__menu">
+                        
                                             
                         
-                        <li class="dropdown"><a href="#"><b>SERVIÇOS</b></a>
-                            <ul>
-                                <li class="dropdown second-level"><a href="#">ATENDIMENTO AOS USUÁRIOS</a>
-                                    <ul>
-                                        <li><a href="/WebSite/Servicos/Informacoes/AtendimentoPublico.aspx">Atendimento Público Centralizado - APC</a></li>  
-                                        <li><a href="/WebSite/Servicos/Informacoes/COI.aspx">Central de Operações e Informações - COI</a></li>
-                                        <li><a href="/WebSite/MalhaRodoviaria/UBAS.aspx">Unidade Básica de Atendimento - UBA</a></li>                                                                        
-                                    </ul>
-                                </li>                        
-                                <li class="dropdown second-level"><a href="#">AUTORIZAÇÕES</a>
-                                    <ul>
-                                        <li><a href="/WebSite/Servicos/Informacoes/ComunicadoAET.aspx">AET</a></li>
-                                        <li><a href="/WebSite/Servicos/Informacoes/AETCirculacao.aspx">Autorização de Circulação (Rodovias com Restrição)</a></li>
-                                        <li><a href="/WebSite/Servicos/Informacoes/AETRural.aspx">Autorização Transporte Trabalhador Rural</a></li>                                       
-                                    </ul>
-                                </li>
-                                <li><a href="/WebSite/Servicos/Informacoes/Convenio.aspx">CONVÊNIO</a></li>
-                                <li><a href="/WebSite/Servicos/ServicosEspeciais/FaixaDominio.aspx">FAIXA DE DOMÍNIO</a></li>
-                                <li class="dropdown second-level"><a href="#">FINANCEIRO</a>
-                                    <ul>
-                                        <li><a href="/WebSite/Servicos/ServicosEspeciais/Caucoes.aspx">Cauções</a></li>
-                                        <li><a href="/WebSite/Servicos/ServicosEspeciais/NotasFiscaisFaturas.aspx">Notas Fiscais/Faturas</a></li>                                    
-                                        <li><a href="http://200.144.30.103/ISSQN/Asppages/defaultpagto.asp">Pagamento aos Fornecedores</a></li> 
-                                        <li><a href="http://200.144.30.103/ISSQN_internet/">Sistema de Atestado de Redendimento - Pessoa Física</a></li>
-                                        <li><a href="/WebSite/Servicos/ServicosEspeciais/RetencaoRepasse.aspx">Sistema ISSQN - Retenção e Repasse</a></li>                                          
-                                    </ul>
-                                </li>
-                                <li><a href="/WebSite/Documentos/Leilao/Leilao.aspx">LEILÃO</a></li>  
-                                <li class="dropdown second-level"><a href="#">MULTAS E RECURSOS</a>
-                                    <ul>
-                                        <li><a href="/WebSite/Servicos/ServicosOnline/PenalidadeEscrita.aspx">Advertência por Escrito</a></li>                                   
-                                        <li><a href="/WebSite/Servicos/ServicosOnline/CadinEstadual.aspx">CADIN Estadual</a></li>
-                                        <li><a href="https://www.multas1.der.sp.gov.br/der_multas_web">Consultar Multas</a></li>
-                                        <li><a href="/WebSite/Servicos/ServicosOnline/CopiasAutoInfracao.aspx">Cópias de Auto de Infração e Documentos Técnicos</a></li> 
-                                        <li><a href="/WebSite/Servicos/ServicosOnline/DefesaPrevia.aspx">Defesa Prévia</a></li>
-                                        <li><a href="/WebSite/Servicos/ServicosOnline/Desvinculacao.aspx">Desvinculação</a></li>
-                                        <li><a href="https://www.der.sp.gov.br/WebSite/Arquivos/Servicos/passo_passo_indicacao_condutor.pdf">Indicação do Condutor - Pessoa Física</a></li>
-                                        <li><a href="/WebSite/Servicos/ServicosOnline/IndicacaoCondutor.aspx">Indicação do Condutor - Pessoa Jurídica</a></li>
-                                        <li><a href="/WebSite/Servicos/ServicosOnline/MultasOnline.aspx">Informações</a></li>                                                                        
-                                        <li><a href="/WebSite/Servicos/ServicosOnline/PagamentoParcelamentoMultas.aspx">Pagamento de Multas</a></li>
-                                        <li><a href="/WebSite/Servicos/ServicosOnline/RecursosAdministrativosOnline.aspx">Recurso Administrativo</a></li>
-                                        <li><a href="/WebSite/Servicos/ServicosOnline/RecursoCETRANOnline.aspx">Recurso CETRAN</a></li>
-                                        <li><a href="/WebSite/Servicos/ServicosOnline/RestituicaoPagamentoMulta.aspx">Restituição de Multas</a></li>                                                                                                                       
-                                    </ul>
-                                </li>                            
-                                <li class="dropdown second-level"><a href="#">PÁTIOS</a>
-                                    <ul>
-                                        <li><a href="/WebSite/Documentos/VeiculosRecolhidosDuvidas/EnderecosContatos.aspx">Endereços e Horários</a></li>
-                                        <li><a href="/WebSite/Documentos/VeiculosRecolhidos.aspx">Informações</a></li> 
-                                        <li><a href="/WebSite/Documentos/VeiculosRecolhidosDuvidas/LiberacaoVeiculo.aspx">Liberação de Veículo</a></li>                                     
-                                    </ul>
-                                </li>                                                                                  
-                                <li><a href="/WebSite/Servicos/ServicosOnline/ProtocoloEletronico.aspx">PROTOCOLO ELETRÔNICO</a></li>                           				
-                            </ul>
-                        </li>
-    
+                                           <li class="dropdown"><a href="#"><b>INSTITUCIONAL</b></a>
+                                                <ul>                         
+                                                    <li class="dropdown second-level"><a href="#">DER</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/Institucional/MissaoDER.aspx">Missão</a></li>
+                                                            <li><a href="/WebSite/Institucional/Marca.aspx">Marca</a></li>
+                                                            <li><a href="/WebSite/Institucional/MemoriaTransporte.aspx">Memória do Transporte</a></li>                                    
+                                                            <li><a href="/WebSite/Institucional/RelacaoSuperintendentesDER.aspx">Relação de Superintendente</a></li>                                  
+                                                        </ul>
+                                                    </li>
                         
-    
-                        <li class="dropdown"><a href="#"><b>RODOVIAS</b></a>
-                            <ul>   
-                                <li class="dropdown second-level"><a href="#">BALANÇA</a>
-                                    <ul>
-                                        <li><a href="/WebSite/Documentos/PesoOficial.aspx">Peso Oficial de Veículos de Carga</a></li>
-                                        <li><a href="/WebSite/MalhaRodoviaria/PontoPesagem.aspx">Pontos de Pessagem</a></li>                                             
-                                    </ul>
-                                </li>
-                                <li><a href="/WebSite/Servicos/ServicosOnline/CamerasOnlineMapa.aspx">CÂMERAS ON-LINE</a></li>
-                                <li><a href="/WebSite/Servicos/ServicosOnline/CondicaoRodovias.aspx">CONDIÇÕES DA RODOVIA</a></li>							
-                                <li><a href="/WebSite/Contatos/ContatoEmergencias.aspx">CONTATO E EMERGÊNCIA</a></li>                          
-                                <li><a href="/WebSite/Servicos/ServicosEspeciais/Desapropriacoes/HomeDesapropriacoes.aspx?prm=home">DESAPROPRIAÇÃO</a></li>
-                                <li><a href="/WebSite/Servicos/ServicosOnline/RodoviasInterditadas.aspx">INTERDIÇÕES</a></li>
-                                <li><a href="/WebSite/MalhaRodoviaria/PesquisaRodovias.aspx">MALHA RODOVIÁRIA</a></li>
-                                <li class="dropdown second-level"><a href="#">MAPAS</a>
-                                    <ul>
-                                        <li><a href="https://felt.com/embed/map/DER-webGIS-9BFsv1D1SQEWP4Utyab6nGB?loc=-22.228,-49.162,7.5z&amp;legend=1&amp;logo=1&amp;link=1%22">Mapa Dinâmico</a></li>
-                                        <li><a href="/WebSite/Documentos/Mapas.aspx">Mapas Estáticos</a></li>                                      
-                                    </ul>
-                                </li>								
-                                <li><a href="/WebSite/Institucional/MunicipiosAbrangidos.aspx">MUNICÍPIOS ATENDIDOS</a></li>
-                                <li><a href="/WebSite/MalhaRodoviaria/ValoresPedagio.aspx">PEDÁGIO</a></li> 
-                                <li class="dropdown second-level"><a href="#">RADARES</a>
-                                    <ul>
-                                        <li><a href="/WebSite/MalhaRodoviaria/LocalizacaoRadar.aspx">Limites de Velocidade</a></li>                                    
-                                        <li><a href="/WebSite/MalhaRodoviaria/PesquisaRadar.aspx">Localização</a></li>
-                                    </ul>
-                                </li>                                                   
-                                <li><a href="/WebSite/Servicos/ServicosOnline/WebRotas.aspx">WEB ROTAS</a></li>												                                     
-                            </ul>
-                        </li>
-    
+                                                    
                         
-    
-                        <li class="dropdown"><a href="#"><b>TRANSPARÊNCIA</b></a>
-                            <ul>                        
-                                <li class="dropdown second-level"><a href="#">SERVIDORES PÚBLICOS</a>
-                                    <ul>
-                                        <li><a href="https://www.transparencia.sp.gov.br/Home/Servidor">Remuneração Mensal</a></li>                                    
-                                        <li><a href="https://www.transparencia.sp.gov.br/Home/Diarias">Diária e Passagens Aéreas</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown second-level"><a href="#">PROGRAMAS E AÇÕES</a>
-                                    <ul>
-                                        <li><a href="/WebSite/MalhaRodoviaria/BancoMundial/Apresentacao.aspx">Banco Mundial</a></li>                                    
-                                        <li><a href="/WebSite/MalhaRodoviaria/BancoBID/Apresentacao.aspx">Banco Interamericano de Desenvolvimento</a></li>
-                                        <li><a href="/WebSite/Arquivos/pdf/rel_ati_des_demo_contabeis_2023.pdf">Relatório das Atividades Desenvolvidas e Demonstrativos Contábeis</a></li>
-                                        <li><a href="/WebSite/Transparencia/RelatorioGerencial.aspx">Relatório Gerencial</a></li>
-                                        <li><a href="/WebSite/Arquivos/pdf/plano_segurança_2024_F2.pdf">Plano de Segurança Viária</a></li>
-                                        <li><a href="/WebSite/Arquivos/pdf/Anuario_2023.pdf">Anuário Rodoviário de Acidentes</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown second-level"><a href="#">PARTICIPAÇÃO SOCIAL</a>
-                                    <ul>
-                                        <li><a href="/WebSite/Licitacoes/LicitacoesGeral.aspx">Audiência e Consultas Públicas</a></li>
-                                        <li><a href="/WebSite/Licitacoes/ConOrgaosColegiados.aspx">Conselhos e Órgãos Colegiados</a></li>                                      
-                                        <!--<li><a href="/WebSite/Licitacoes/Editais.aspx">Editais</a></li>
-                                        <li><a href="/WebSite/Licitacoes/Manifestacao.aspx">Manifestação de Interesse</a></li>-->
-                                        <li><a href="/WebSite/Contatos/RelAtendOuvidoria.aspx">Avaliação dos Serviços Públicos</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown second-level"><a href="#">CONTRATOS E COMPRAS PÚBLICAS</a>
-                                    <ul>
-                                        <li><a href="https://www.transparencia.sp.gov.br/Home/DespContratos">Painel da Transparência de Despesas com Contratos</a></li>    
-                                        <li><a href="https://www.bec.sp.gov.br/BECSP/Home/Home.aspx">Bolsa Eletrônica de Compras - BEC</a></li>    
-                                        <li><a href="https://www.imprensaoficial.com.br/ENegocios/HomeNPNaoLogado_3_0.aspx#29/09/2023"> Tipos de Contratações - e-Negócios</a></li>    
-                                        <li><a href="https://www.imprensaoficial.com.br/ENegocios/BuscaENegocios_14_1.aspx#29/09/2023">Contratos na Íntegra - e-Negócios</a></li>    
-                                        <li><a href="https://www.bec.sp.gov.br/Caufesp/(S(qirxbedrnlrmyzguig0gb5ef))/Publico/TipoEmpresa.aspx">Cadastro Unificado de Fornecedores do Estado de São Paulo - CAUFESP</a></li>    
-                                        <li><a href="https://portal.fazenda.sp.gov.br/servicos/cadin/Paginas/Sobre.aspx">Cadastro Informativo dos Créditos não Quitados de Órgãos e Entidades Estaduais - CADIN</a></li>    
-                                        <li><a href="http://www.servicos.controladoriageral.sp.gov.br/PesquisaCEEP.aspx">Cadastro Estadual de Empresas Punidas - CEEP</a></li>    
-                                        <li><a href="https://www.transparencia.sp.gov.br/Home/ServTerc">Contratos de Serviços Terceirizados</a></li>    
-                                        <li><a href="http://www.parcerias.sp.gov.br/Parcerias/Projetos/Portfolio">Editais e Contratos Assinados de Parcerias Público-Privadas</a></li>   
-                                        <li><a href="https://www.transparencia.sp.gov.br/Home/DespContratos">Despesas com Contratos</a></li>   
-                                    </ul>
-                                </li>
-                                <li class="dropdown second-level"><a href="#">RECEITAS E DESPESAS</a>
-                                    <ul>
-                                        <li><a href="https://www.transparencia.sp.gov.br/Home/Demonstra">Receitas</a></li>                                                                        
-                                        <li><a href="https://www.transparencia.sp.gov.br/Home/Investimentos">Despesas</a></li>                                                                        
-                                    </ul>
-                                </li>
-                                <li><a href="https://www.transparencia.sp.gov.br/Home/EmendasParlamentares">EMENDAS PARLAMENTARES</a></li> 
-                                <li><a href="https://www.transparencia.sp.gov.br/Home/ObrasPublicas">OBRAS PÚBLICAS</a></li> 
-                                
-                                <li><a href="/WebSite/Licitacoes/LicitacoesGeral.aspx">LICITAÇÕES</a></li>
-                                <li><a href="/WebSite/Licitacoes/InformacoesClasDes.aspx">INFORMAÇÕES CLASSIFICADAS E DESCLASSIFICADAS</a></li>
-                                <li class="dropdown second-level"><a href="#">CONVÊNIOS, REPASSES E TRANSPARÊNCIAS</a>
-                                   <ul>
-                                       <li><a href="https://portal.fazenda.sp.gov.br/acessoinformacao/Paginas/Transfer%C3%AAncias-Constitucionais-a-Municipios.aspx">Transferências Constitucionais a Municípios</a></li>                                                                        
-                                       <li><a href="https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PaginaInicial.aspx">Transferências Voluntárias a Municípios e Entidades</a></li>
-                                       <li><a href="https://portal.fazenda.sp.gov.br/acessoinformacao/Paginas/Repasses-para-Universidades.aspx">Repasses às Universidades</a></li>
-                                       <li><a href="https://www.transparencia.sp.gov.br/Home/Repasses">Repasses a Parceiros do 3º Setor</a></li>
-                                       <li><a href="http://www.governo.sp.gov.br/emendas/">Emendas Parlamentares</a></li>
-                                       <li><a href="http://www.parceriassociais.sp.gov.br/osc/">Parcerias com Organizações da Sociedade Civil - OSC</a></li>
-                                       <li><a href="https://www.transparencia.sp.gov.br/Home/ContrGestao">Contratos de Gestão - Organizações Sociais</a></li>
-                                       <li><a href="http://www.cadastrodeentidades.sp.gov.br/(S(ga5pq1z1tg3sbefk5mvkiw55))/default.aspx">Cadastro Estadual de Entidades - CEE</a></li> 								    								   
-                                   </ul>
-                                </li>
-                            </ul>
-                        </li>
-    
-                         
-                        <li><a href="/WebSite/Servicos/DadosAbertos.aspx"><b>DADOS ABERTOS</b></a></li>
-    
+                                                    
+                                                    <li><a href="http://www.der.sp.gov.br/WebSite/arquivos/Institucional/ORGANOGRAMA.pdf">ORGANOGRAMA DO DER</a></li>                            
                         
-                        <li class="dropdown"><a href="#"><b>BIBLIOTECA</b></a>
-                            <ul>                                          
-                                 <li><a href="/WebSite/Documentos/DocumentosDER.aspx">MANUAIS E NORMAS</a></li>                   
-                            </ul>
-                        </li>
-    
-                    </ul>
-                </nav>
-            <img src="https://www.der.sp.gov.br/WebSite/img/logoDER.png" class="img-responsive logo-menu logoPadrao" alt="Logo Tipo do DERSP" style="width: 150px;">
-        </div>     
-    </div>
-    
-    <script>
-        !function (e) {
-            var t = {};
-            function n(o) {
-                if (t[o])
-                    return t[o].exports;
-                var r = t[o] = {
-                    i: o,
-                    l: !1,
-                    exports: {}
-                };
-                return e[o].call(r.exports, r, r.exports, n),
-                    r.l = !0,
-                    r.exports
-            }
-            n.m = e,
-                n.c = t,
-                n.d = function (e, t, o) {
-                    n.o(e, t) || Object.defineProperty(e, t, {
-                        enumerable: !0,
-                        get: o
-                    })
-                }
-                ,
-                n.r = function (e) {
-                    "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
-                        value: "Module"
-                    }),
-                        Object.defineProperty(e, "__esModule", {
-                            value: !0
-                        })
-                }
-                ,
-                n.t = function (e, t) {
-                    if (1 & t && (e = n(e)),
-                        8 & t)
-                        return e;
-                    if (4 & t && "object" == typeof e && e && e.__esModule)
-                        return e;
-                    var o = Object.create(null);
-                    if (n.r(o),
-                        Object.defineProperty(o, "default", {
-                            enumerable: !0,
-                            value: e
-                        }),
-                        2 & t && "string" != typeof e)
-                        for (var r in e)
-                            n.d(o, r, function (t) {
-                                return e[t]
+                                                    <li class="dropdown second-level"><a href="#">QUEM É QUEM</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/Institucional/Sede.aspx">Sede</a></li>
+                                                            <li><a href="/WebSite/Institucional/DivisoesRegionais.aspx">Divisões Regionais</a></li>                                      
+                                                        </ul>
+                                                    </li>                            
+                                                    <li class="dropdown second-level"><a href="#">INTEGRIDADE</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/Arquivos/INSTITUCIONAL/Carta_Compromisso.pdf">Carta de Compromisso</a></li>
+                                                            <li><a href="/WebSite/Arquivos/INSTITUCIONAL/CODIGO_DE_CONDUTA_ETICA_V_FINAL.pdf">Código de Conduta Ética</a></li>
+                                                            <li><a href="/WebSite/Arquivos/INSTITUCIONAL/Programa_Integridade.pdf">Programa de Integridade</a></li>                                    
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="/WebSite/Agenda/Index.aspx">AGENDA DO SUPERINTENDENTE</a></li>
+                                                    <li class="dropdown second-level"><a href="#">LEGISLAÇÃO</a>
+                                                        <ul>
+                                                            <li><a href="http://www.der.sp.gov.br/WebSite/arquivos/Institucional/Legislacao_Institucional.pdf">Institucional</a></li>                                    
+                                                            <li><a href="http://www.der.sp.gov.br/WebSite/arquivos/Institucional/regimento_interno.pdf">Regimento Interno</a></li>  
+                                                            <li><a href="http://200.144.30.104/der/portarias/PortariasViewDownload.asp">Portaria</a></li>                                                                     
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="/WebSite/Contatos/ContatoGeral.aspx">HORÁRIO DE ATENDIMENTO, ENDEREÇO E TELEFONE</a></li>
+                                                    <li><a href="/WebSite/Institucional/CartaServico.aspx">CARTA DE SERVIÇOS</a></li>
+                                                    <li><a href="https://servicos.sp.gov.br/search/?csrfmiddlewaretoken=FkqoBJTOc3EkpepHt3z9BKanHL1Re3Wu2A94OSdYjtW6JFDabFPMpIJL7ue7jDmg&amp;q=Departamento+de+Estradas+de+Rodagem">PORTAL DE SERVIÇOS AO CIDADÃO</a></li>                            
+                                                    <li><a href="/WebSite/BoletimAdministrativo/Boletins.aspx">BOLETIM ADMINISTRATIVO</a></li>  
+                                                </ul>
+                                            </li>
+                                            
+                                            
+                        
+                                            <li class="dropdown"><a href="#"><b>CANAIS DE COMUNICAÇÃO</b></a>
+                                                <ul>                        
+                                                    <li class="dropdown second-level"><a href="#">OUVIDORIA</a>
+                                                        <ul>
+                                                            <li><a href="/Website/Contatos/Ouvidoria.aspx">Ouvidoria DER</a></li>
+                                                            <li><a href="/WebSite/Contatos/RelAtendOuvidoria.aspx">Relatórios de Atendimento</a></li>                                      
+                                                        </ul>
+                                                    </li>                            
+                                                    <li><a href="/Website/Contatos/Sic.aspx">SERVIÇOS DE INFORMAÇÕES AO CIDADÃO - SIC</a></li>
+                                                    <li><a href="/WebSite/Contatos/LGPD.aspx">PRIVACIDADE E PROTEÇÃO DE DADOS - LGPD</a></li>
+                                                    <li class="dropdown second-level"><a href="#">IMPRENSA</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/Servicos/Informacoes/CampanhaEducativa.aspx">Campanhas Educativas</a></li>
+                                                            <li><a href="/WebSite/Contatos/ContatoImprensa.aspx">Contatos</a></li>
+                                                            <li><a href="/WebSite/Comunicacao/SalaImprensa.aspx">Notícias</a></li>                                      
+                                                        </ul>
+                                                    </li>                          
+                                                    <li><a href="/Website/Contatos/PerguntasFrequentes.aspx">PERGUNTAS FREQUENTES</a></li>
+                                                    <li><a href="/WebSite/Comunicacao/Conselho.aspx">CONSELHO DE USUÁRIOS</a></li>
+                                                </ul>
+                                            </li>
+                                            
+                                            
+                                            <li><a href="/WebSite/Servicos/ServicosOnline/MultasOnline.aspx"><b>MULTAS E RECURSOS</b></a></li>
+                        
+                                                                
+                                            
+                                            <li class="dropdown"><a href="#"><b>SERVIÇOS</b></a>
+                                                <ul>
+                                                    <li class="dropdown second-level"><a href="#">ATENDIMENTO AOS USUÁRIOS</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/Servicos/Informacoes/AtendimentoPublico.aspx">Atendimento Público Centralizado - APC</a></li>  
+                                                            <li><a href="/WebSite/Servicos/Informacoes/COI.aspx">Central de Operações e Informações - COI</a></li>
+                                                            <li><a href="/WebSite/MalhaRodoviaria/UBAS.aspx">Unidade Básica de Atendimento - UBA</a></li>                                                                        
+                                                        </ul>
+                                                    </li>                        
+                                                    <li class="dropdown second-level"><a href="#">AUTORIZAÇÕES</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/Servicos/Informacoes/ComunicadoAET.aspx">AET</a></li>
+                                                            <li><a href="/WebSite/Servicos/Informacoes/AETCirculacao.aspx">Autorização de Circulação (Rodovias com Restrição)</a></li>
+                                                            <li><a href="/WebSite/Servicos/Informacoes/AETRural.aspx">Autorização Transporte Trabalhador Rural</a></li>                                       
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="/WebSite/Servicos/Informacoes/Convenio.aspx">CONVÊNIO</a></li>
+                                                    <li><a href="/WebSite/Servicos/ServicosEspeciais/FaixaDominio.aspx">FAIXA DE DOMÍNIO</a></li>
+                                                    <li class="dropdown second-level"><a href="#">FINANCEIRO</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/Servicos/ServicosEspeciais/Caucoes.aspx">Cauções</a></li>
+                                                            <li><a href="/WebSite/Servicos/ServicosEspeciais/NotasFiscaisFaturas.aspx">Notas Fiscais/Faturas</a></li>                                    
+                                                            <li><a href="http://200.144.30.103/ISSQN/Asppages/defaultpagto.asp">Pagamento aos Fornecedores</a></li> 
+                                                            <li><a href="http://200.144.30.103/ISSQN_internet/">Sistema de Atestado de Redendimento - Pessoa Física</a></li>
+                                                            <li><a href="/WebSite/Servicos/ServicosEspeciais/RetencaoRepasse.aspx">Sistema ISSQN - Retenção e Repasse</a></li>                                          
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="/WebSite/Documentos/Leilao/Leilao.aspx">LEILÃO</a></li>  
+                                                    <li class="dropdown second-level"><a href="#">MULTAS E RECURSOS</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/Servicos/ServicosOnline/PenalidadeEscrita.aspx">Advertência por Escrito</a></li>                                   
+                                                            <li><a href="/WebSite/Servicos/ServicosOnline/CadinEstadual.aspx">CADIN Estadual</a></li>
+                                                            <li><a href="https://www.multas1.der.sp.gov.br/der_multas_web">Consultar Multas</a></li>
+                                                            <li><a href="/WebSite/Servicos/ServicosOnline/CopiasAutoInfracao.aspx">Cópias de Auto de Infração e Documentos Técnicos</a></li> 
+                                                            <li><a href="/WebSite/Servicos/ServicosOnline/DefesaPrevia.aspx">Defesa Prévia</a></li>
+                                                            <li><a href="/WebSite/Servicos/ServicosOnline/Desvinculacao.aspx">Desvinculação</a></li>
+                                                            <li><a href="https://www.der.sp.gov.br/WebSite/Arquivos/Servicos/passo_passo_indicacao_condutor.pdf">Indicação do Condutor - Pessoa Física</a></li>
+                                                            <li><a href="/WebSite/Servicos/ServicosOnline/IndicacaoCondutor.aspx">Indicação do Condutor - Pessoa Jurídica</a></li>
+                                                            <li><a href="/WebSite/Servicos/ServicosOnline/MultasOnline.aspx">Informações</a></li>                                                                        
+                                                            <li><a href="/WebSite/Servicos/ServicosOnline/PagamentoParcelamentoMultas.aspx">Pagamento de Multas</a></li>
+                                                            <li><a href="/WebSite/Servicos/ServicosOnline/RecursosAdministrativosOnline.aspx">Recurso Administrativo</a></li>
+                                                            <li><a href="/WebSite/Servicos/ServicosOnline/RecursoCETRANOnline.aspx">Recurso CETRAN</a></li>
+                                                            <li><a href="/WebSite/Servicos/ServicosOnline/RestituicaoPagamentoMulta.aspx">Restituição de Multas</a></li>                                                                                                                       
+                                                        </ul>
+                                                    </li>                            
+                                                    <li class="dropdown second-level"><a href="#">PÁTIOS</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/Documentos/VeiculosRecolhidosDuvidas/EnderecosContatos.aspx">Endereços e Horários</a></li>
+                                                            <li><a href="/WebSite/Documentos/VeiculosRecolhidos.aspx">Informações</a></li> 
+                                                            <li><a href="/WebSite/Documentos/VeiculosRecolhidosDuvidas/LiberacaoVeiculo.aspx">Liberação de Veículo</a></li>                                     
+                                                        </ul>
+                                                    </li>                                                                                  
+                                                    <li><a href="/WebSite/Servicos/ServicosOnline/ProtocoloEletronico.aspx">PROTOCOLO ELETRÔNICO</a></li>                           				
+                                                </ul>
+                                            </li>
+                        
+                                            
+                        
+                                            <li class="dropdown"><a href="#"><b>RODOVIAS</b></a>
+                                                <ul>   
+                                                    <li class="dropdown second-level"><a href="#">BALANÇA</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/Documentos/PesoOficial.aspx">Peso Oficial de Veículos de Carga</a></li>
+                                                            <li><a href="/WebSite/MalhaRodoviaria/PontoPesagem.aspx">Pontos de Pessagem</a></li>                                             
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="/WebSite/Servicos/ServicosOnline/CamerasOnlineMapa.aspx">CÂMERAS ON-LINE</a></li>
+                                                    <li><a href="/WebSite/Servicos/ServicosOnline/CondicaoRodovias.aspx">CONDIÇÕES DA RODOVIA</a></li>							
+                                                    <li><a href="/WebSite/Contatos/ContatoEmergencias.aspx">CONTATO E EMERGÊNCIA</a></li>                          
+                                                    <li><a href="/WebSite/Servicos/ServicosEspeciais/Desapropriacoes/HomeDesapropriacoes.aspx?prm=home">DESAPROPRIAÇÃO</a></li>
+                                                    <li><a href="/WebSite/Servicos/ServicosOnline/RodoviasInterditadas.aspx">INTERDIÇÕES</a></li>
+                                                    <li><a href="/WebSite/MalhaRodoviaria/PesquisaRodovias.aspx">MALHA RODOVIÁRIA</a></li>
+                                                    <li class="dropdown second-level"><a href="#">MAPAS</a>
+                                                        <ul>
+                                                            <!--<li><a href="https://felt.com/embed/map/DER-webGIS-9BFsv1D1SQEWP4Utyab6nGB?loc=-22.228,-49.162,7.5z&legend=1&logo=1&link=1%22">Mapa Dinâmico</a></li>-->
+                                                            <li><a href="/WebSite/Documentos/Mapas.aspx">Mapas Estáticos</a></li>                                      
+                                                        </ul>
+                                                    </li>								
+                                                    <li><a href="/WebSite/Institucional/MunicipiosAbrangidos.aspx">MUNICÍPIOS ATENDIDOS</a></li>
+                                                    <li><a href="/WebSite/MalhaRodoviaria/ValoresPedagio.aspx">PEDÁGIO</a></li> 
+                                                    <li class="dropdown second-level"><a href="#">RADARES</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/MalhaRodoviaria/LocalizacaoRadar.aspx">Limites de Velocidade</a></li>                                    
+                                                            <li><a href="/WebSite/MalhaRodoviaria/PesquisaRadar.aspx">Localização</a></li>
+                                                        </ul>
+                                                    </li>                                                   
+                                                    <li><a href="/WebSite/Servicos/ServicosOnline/WebRotas.aspx">WEB ROTAS</a></li>												                                     
+                                                </ul>
+                                            </li>
+                        
+                                            
+                        
+                                            <li class="dropdown"><a href="#"><b>TRANSPARÊNCIA</b></a>
+                                                <ul>                        
+                                                    <li class="dropdown second-level"><a href="#">SERVIDORES PÚBLICOS</a>
+                                                        <ul>
+                                                            <li><a href="https://www.transparencia.sp.gov.br/Home/Servidor">Remuneração Mensal</a></li>                                    
+                                                            <li><a href="https://www.transparencia.sp.gov.br/Home/Diarias">Diária e Passagens Aéreas</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="dropdown second-level"><a href="#">PROGRAMAS E AÇÕES</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/MalhaRodoviaria/BancoMundial/Apresentacao.aspx">Banco Mundial</a></li>                                    
+                                                            <li><a href="/WebSite/MalhaRodoviaria/BancoBID/Apresentacao.aspx">Banco Interamericano de Desenvolvimento</a></li>
+                                                            <li><a href="/WebSite/Arquivos/pdf/rel_ati_des_demo_contabeis_2023.pdf">Relatório das Atividades Desenvolvidas e Demonstrativos Contábeis</a></li>
+                                                            <li><a href="/WebSite/Transparencia/RelatorioGerencial.aspx">Relatório Gerencial</a></li>
+                                                            <li><a href="/WebSite/Arquivos/pdf/plano_segurança_2024_F2.pdf">Plano de Segurança Viária</a></li>
+                                                            <li><a href="/WebSite/Arquivos/pdf/Anuario_2023.pdf">Anuário Rodoviário de Acidentes</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="dropdown second-level"><a href="#">PARTICIPAÇÃO SOCIAL</a>
+                                                        <ul>
+                                                            <li><a href="/WebSite/Licitacoes/LicitacoesGeral.aspx">Audiência e Consultas Públicas</a></li>
+                                                            <li><a href="/WebSite/Licitacoes/ConOrgaosColegiados.aspx">Conselhos e Órgãos Colegiados</a></li>                                      
+                                                            <!--<li><a href="/WebSite/Licitacoes/Editais.aspx">Editais</a></li>
+                                                            <li><a href="/WebSite/Licitacoes/Manifestacao.aspx">Manifestação de Interesse</a></li>-->
+                                                            <li><a href="/WebSite/Contatos/RelAtendOuvidoria.aspx">Avaliação dos Serviços Públicos</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="dropdown second-level"><a href="#">CONTRATOS E COMPRAS PÚBLICAS</a>
+                                                        <ul>
+                                                            <li><a href="https://www.transparencia.sp.gov.br/Home/DespContratos">Painel da Transparência de Despesas com Contratos</a></li>    
+                                                            <li><a href="https://www.bec.sp.gov.br/BECSP/Home/Home.aspx">Bolsa Eletrônica de Compras - BEC</a></li>    
+                                                            <li><a href="https://www.imprensaoficial.com.br/ENegocios/HomeNPNaoLogado_3_0.aspx#29/09/2023"> Tipos de Contratações - e-Negócios</a></li>    
+                                                            <li><a href="https://www.imprensaoficial.com.br/ENegocios/BuscaENegocios_14_1.aspx#29/09/2023">Contratos na Íntegra - e-Negócios</a></li>    
+                                                            <li><a href="https://www.bec.sp.gov.br/Caufesp/(S(qirxbedrnlrmyzguig0gb5ef))/Publico/TipoEmpresa.aspx">Cadastro Unificado de Fornecedores do Estado de São Paulo - CAUFESP</a></li>    
+                                                            <li><a href="https://portal.fazenda.sp.gov.br/servicos/cadin/Paginas/Sobre.aspx">Cadastro Informativo dos Créditos não Quitados de Órgãos e Entidades Estaduais - CADIN</a></li>    
+                                                            <li><a href="http://www.servicos.controladoriageral.sp.gov.br/PesquisaCEEP.aspx">Cadastro Estadual de Empresas Punidas - CEEP</a></li>    
+                                                            <li><a href="https://www.transparencia.sp.gov.br/Home/ServTerc">Contratos de Serviços Terceirizados</a></li>    
+                                                            <li><a href="http://www.parcerias.sp.gov.br/Parcerias/Projetos/Portfolio">Editais e Contratos Assinados de Parcerias Público-Privadas</a></li>   
+                                                            <li><a href="https://www.transparencia.sp.gov.br/Home/DespContratos">Despesas com Contratos</a></li>   
+                                                        </ul>
+                                                    </li>
+                                                    <li class="dropdown second-level"><a href="#">RECEITAS E DESPESAS</a>
+                                                        <ul>
+                                                            <li><a href="https://www.transparencia.sp.gov.br/Home/Demonstra">Receitas</a></li>                                                                        
+                                                            <li><a href="https://www.transparencia.sp.gov.br/Home/Investimentos">Despesas</a></li>                                                                        
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="https://www.transparencia.sp.gov.br/Home/EmendasParlamentares">EMENDAS PARLAMENTARES</a></li> 
+                                                    <li><a href="https://www.transparencia.sp.gov.br/Home/ObrasPublicas">OBRAS PÚBLICAS</a></li> 
+                                                    
+                                                    <li><a href="/WebSite/Licitacoes/LicitacoesGeral.aspx">LICITAÇÕES</a></li>
+                                                    <li><a href="/WebSite/Licitacoes/InformacoesClasDes.aspx">INFORMAÇÕES CLASSIFICADAS E DESCLASSIFICADAS</a></li>
+                                                    <li class="dropdown second-level"><a href="#">CONVÊNIOS, REPASSES E TRANSPARÊNCIAS</a>
+                                                       <ul>
+                                                           <li><a href="https://portal.fazenda.sp.gov.br/acessoinformacao/Paginas/Transfer%C3%AAncias-Constitucionais-a-Municipios.aspx">Transferências Constitucionais a Municípios</a></li>                                                                        
+                                                           <li><a href="https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PaginaInicial.aspx">Transferências Voluntárias a Municípios e Entidades</a></li>
+                                                           <li><a href="https://portal.fazenda.sp.gov.br/acessoinformacao/Paginas/Repasses-para-Universidades.aspx">Repasses às Universidades</a></li>
+                                                           <li><a href="https://www.transparencia.sp.gov.br/Home/Repasses">Repasses a Parceiros do 3º Setor</a></li>
+                                                           <li><a href="http://www.governo.sp.gov.br/emendas/">Emendas Parlamentares</a></li>
+                                                           <li><a href="http://www.parceriassociais.sp.gov.br/osc/">Parcerias com Organizações da Sociedade Civil - OSC</a></li>
+                                                           <li><a href="https://www.transparencia.sp.gov.br/Home/ContrGestao">Contratos de Gestão - Organizações Sociais</a></li>
+                                                           <li><a href="http://www.cadastrodeentidades.sp.gov.br/(S(ga5pq1z1tg3sbefk5mvkiw55))/default.aspx">Cadastro Estadual de Entidades - CEE</a></li> 								    								   
+                                                       </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                        
+                                             
+                                            <li><a href="/WebSite/Servicos/DadosAbertos.aspx"><b>DADOS ABERTOS</b></a></li>
+                        
+                                            
+                                            <li class="dropdown"><a href="#"><b>BIBLIOTECA</b></a>
+                                                <ul>                                          
+                                                     <li><a href="/WebSite/Documentos/DocumentosDER.aspx">MANUAIS E NORMAS</a></li>                   
+                                                </ul>
+                                            </li>
+                        
+                                        </ul>
+                                    </nav>
+                                <img src="https://www.der.sp.gov.br/WebSite/img/logoDER.png" class="img-responsive logo-menu logoPadrao" alt="Logo Tipo do DERSP" style="width: 150px;">
+                            </div>     
+                        </div>
+                        
+                        <script>
+                            !function (e) {
+                                var t = {};
+                                function n(o) {
+                                    if (t[o])
+                                        return t[o].exports;
+                                    var r = t[o] = {
+                                        i: o,
+                                        l: !1,
+                                        exports: {}
+                                    };
+                                    return e[o].call(r.exports, r, r.exports, n),
+                                        r.l = !0,
+                                        r.exports
+                                }
+                                n.m = e,
+                                    n.c = t,
+                                    n.d = function (e, t, o) {
+                                        n.o(e, t) || Object.defineProperty(e, t, {
+                                            enumerable: !0,
+                                            get: o
+                                        })
+                                    }
+                                    ,
+                                    n.r = function (e) {
+                                        "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
+                                            value: "Module"
+                                        }),
+                                            Object.defineProperty(e, "__esModule", {
+                                                value: !0
+                                            })
+                                    }
+                                    ,
+                                    n.t = function (e, t) {
+                                        if (1 & t && (e = n(e)),
+                                            8 & t)
+                                            return e;
+                                        if (4 & t && "object" == typeof e && e && e.__esModule)
+                                            return e;
+                                        var o = Object.create(null);
+                                        if (n.r(o),
+                                            Object.defineProperty(o, "default", {
+                                                enumerable: !0,
+                                                value: e
+                                            }),
+                                            2 & t && "string" != typeof e)
+                                            for (var r in e)
+                                                n.d(o, r, function (t) {
+                                                    return e[t]
+                                                }
+                                                    .bind(null, r));
+                                        return o
+                                    }
+                                    ,
+                                    n.n = function (e) {
+                                        var t = e && e.__esModule ? function () {
+                                            return e.default
+                                        }
+                                            : function () {
+                                                return e
+                                            }
+                                            ;
+                                        return n.d(t, "a", t),
+                                            t
+                                    }
+                                    ,
+                                    n.o = function (e, t) {
+                                        return Object.prototype.hasOwnProperty.call(e, t)
+                                    }
+                                    ,
+                                    n.p = "",
+                                    n(n.s = 0)
+                            }([function (e, t, n) {
+                                "use strict";
+                                n.r(t);
+                                var o;
+                                n(1);
+                                window.addEventListener("resize", (function () {
+                                    document.body.classList.add("resize-animation-stopper"),
+                                        clearTimeout(o),
+                                        o = setTimeout((function () {
+                                            document.body.classList.remove("resize-animation-stopper")
+                                        }
+                                        ), 400)
+                                }
+                                ));
+                        
+                                var r = document.querySelector(".nav-toggle")
+                                    , i = document.querySelector(".menu-toggle");
+                                r.addEventListener("click", (function (e) {
+                                    this.classList.toggle("open"),
+                                        i.classList.toggle("active"),
+                                        e.stopPropagation()
+                                }
+                                ));
+                                // Selecione todos os elementos '.dropdown a' e '.second-level a'
+                                const dropdownLinks = document.querySelectorAll(".dropdown a");
+                                const secondLevelLinks = document.querySelectorAll(".dropdown second-level a");
+                        
+                                // Adicione um evento de clique a cada elemento '.dropdown a'
+                                dropdownLinks.forEach(link => {
+                                    link.addEventListener("click", function (e) {
+                                        const dropdownContent = this.nextElementSibling;
+                                        dropdownContent.classList.toggle("show");
+                                        this.parentNode.classList.toggle("active");
+                                        e.stopPropagation();
+                                    });
+                                });
+                        
+                                secondLevelLinks.forEach(link => {
+                                    link.addEventListener("click", function (e) {
+                                        const dropdownContent = this.nextElementSibling;
+                                        dropdownContent.classList.toggle("show");
+                                        this.parentNode.classList.toggle("active");
+                                        e.stopPropagation();
+                                    });
+                                });
+                        
+                                //document.querySelector(".second-level a").addEventListener("click", (function (e) {
+                                //    this.nextElementSibling.classList.toggle("show"),
+                                //        this.parentNode.classList.toggle("active"),
+                                //        e.stopPropagation()
+                                //}
+                                //))
                             }
-                                .bind(null, r));
-                    return o
-                }
-                ,
-                n.n = function (e) {
-                    var t = e && e.__esModule ? function () {
-                        return e.default
-                    }
-                        : function () {
-                            return e
-                        }
-                        ;
-                    return n.d(t, "a", t),
-                        t
-                }
-                ,
-                n.o = function (e, t) {
-                    return Object.prototype.hasOwnProperty.call(e, t)
-                }
-                ,
-                n.p = "",
-                n(n.s = 0)
-        }([function (e, t, n) {
-            "use strict";
-            n.r(t);
-            var o;
-            n(1);
-            window.addEventListener("resize", (function () {
-                document.body.classList.add("resize-animation-stopper"),
-                    clearTimeout(o),
-                    o = setTimeout((function () {
-                        document.body.classList.remove("resize-animation-stopper")
-                    }
-                    ), 400)
-            }
-            ));
-    
-            var r = document.querySelector(".nav-toggle")
-                , i = document.querySelector(".menu-toggle");
-            r.addEventListener("click", (function (e) {
-                this.classList.toggle("open"),
-                    i.classList.toggle("active"),
-                    e.stopPropagation()
-            }
-            ));
-            // Selecione todos os elementos '.dropdown a' e '.second-level a'
-            const dropdownLinks = document.querySelectorAll(".dropdown a");
-            const secondLevelLinks = document.querySelectorAll(".dropdown second-level a");
-    
-            // Adicione um evento de clique a cada elemento '.dropdown a'
-            dropdownLinks.forEach(link => {
-                link.addEventListener("click", function (e) {
-                    const dropdownContent = this.nextElementSibling;
-                    dropdownContent.classList.toggle("show");
-                    this.parentNode.classList.toggle("active");
-                    e.stopPropagation();
-                });
-            });
-    
-            secondLevelLinks.forEach(link => {
-                link.addEventListener("click", function (e) {
-                    const dropdownContent = this.nextElementSibling;
-                    dropdownContent.classList.toggle("show");
-                    this.parentNode.classList.toggle("active");
-                    e.stopPropagation();
-                });
-            });
-    
-            //document.querySelector(".second-level a").addEventListener("click", (function (e) {
-            //    this.nextElementSibling.classList.toggle("show"),
-            //        this.parentNode.classList.toggle("active"),
-            //        e.stopPropagation()
-            //}
-            //))
-        }
-            , function (e, t, n) { }
-        ]);
-    
-    </script>
-</div>
-
-
-<div class="nav__container linha_menu">
-    <div class="col-md-10 col-xs-14 img_logo" style="padding:0px">           
-        <div class="nav__container">
-            <div class="nav__mobile">
-                <a class="titulogeral" href="#">
-                    <span class="titulo1">DER/SP</span>                    
-                    <span class="titulo2">Coordenadoria de Estudos e Pesquisas</span>
-                </a>
-                
-                <!-- Botão de alternância para mobile -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>               
-            <nav class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="nav__menu navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#sobre">Quem Somos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#eventos">Eventos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#estatisticas">Estatísticas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Logo do DER (Alinhada à Direita) -->
-            <a href="https://www.der.sp.gov.br/WebSite/Index.aspx" target="_blank" class="navbar-logo">
-                <img src="data/logo_der.png" alt="DER-SP" class="logo-der">
-            </a>
-        </div>     
-    </div>
-</div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-        <div class="nav__container">
-            <div class="nav__mobile">
-                <a class="titulogeral" href="#">
-                    <span class="titulo1">DER/SP</span>                    
-                    <span class="titulo2">Departamento de Estradas de Rodagem</span>
-                </a>
-            </div>      
-
-            <!-- Botão de alternância para mobile -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Itens do menu -->
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#sobre">Quem Somos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#eventos">Eventos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#estatisticas">Estatísticas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-                </ul>
-            </div>
-
-            <!-- Logo do DER (Alinhada à Direita) -->
-            <a href="https://www.der.sp.gov.br/WebSite/Index.aspx" target="_blank" class="navbar-logo">
-                <img src="data/logo_der.png" alt="DER-SP" class="logo-der">
-            </a>
-        </div>
+                                , function (e, t, n) { }
+                            ]);
+                        
+                        </script>
+                </div>
         
-    </nav>
+
+        <!-- Cabeçalho -->
+        <header class="header-bg text-center py-4">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="header-title">
+                    <h1 class="fw-bold mb-2">COORDENADORIA DE ESTUDOS E PESQUISAS</h1>
+                    <h2 class="h5 mb-0">DIRETORIA DE PLANEJAMENTO - DP</h2>
+                    <h2 class="h5 mb-0">DER/SP</h2>
+                </div>
+            </div>
+        </header>
+
+         <!-- Seção: Quem Somos -->
+        <section id="sobre" class="py-5 bg-light text-start">
+            <div class="container section-box">
+                <h2 class="text-start mb-4">QUEM SOMOS</h2>
+                <p>A Coordenadoria de Estudos e Pesquisa (CEP) do Departamento de Estradas de Rodagem do Estado de São Paulo (DER/SP) 
+                tem a missão de desenvolver, analisar e aprimorar metodologias e projetos técnicos voltados à infraestrutura rodoviária.</p>
+
+                <!-- Subseção: Nossa Atuação -->
+                <div id="atuacao">
+                    <h3 class="text-start mb-4">NOSSA ATUAÇÃO</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-file-alt"></i> Elaboração de estudos técnicos de viabilidade e favorabilidade diversas;</li>
+                        <li><i class="fas fa-chart-line"></i> Criação de indicadores multidisciplinares de suporte à decisão;</li>
+                        <li><i class="fas fa-balance-scale"></i> Apoio na formulação de políticas públicas voltadas à mobilidade e transporte;</li>
+                        <li><i class="fas fa-map-marked-alt"></i> Integração e análise de dados geoespaciais para otimizar a gestão das rodovias no Estado de São Paulo;</li>
+                        <li><i class="fas fa-leaf"></i> ESG e Sustentabilidade, apoio na introdução e consolidação de conceitos e boas práticas para minimizar eventuais impactos ambientais;</li>
+                        <li><i class="fas fa-recycle"></i> Apoio na adesão ao programa estadual de descarbonização "São Paulo Carbono Zero".</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Equipe -->
+        <section id="equipe" class="py-5 text-start">
+            <div class="container section-box">
+                <h2 class="text-start mb-4">EQUIPE</h2>
+                <p>A CEP é composta por uma equipe multidisciplinar altamente qualificada, reunindo profissionais especializados em segurança viária, engenharia de tráfego, resiliência climática, sensoriamento remoto, geoprocessamento e cartografia digital. Essa diversidade de conhecimento permite uma abordagem abrangente e integrada no desenvolvimento de estudos e projetos, garantindo soluções mais eficientes e inovadoras para a infraestrutura rodoviária do Estado de São Paulo. A sinergia entre essas áreas fortalece a capacidade da CEP de enfrentar desafios complexos e propor melhorias estratégicas, sempre com foco na segurança, sustentabilidade e eficiência do transporte.</p>
+                <!-- Adicione aqui os membros da equipe -->
+            </div>
+        </section>
+
+        <!-- Seção: Projetos -->
+        <section id="projetos" class="py-5 bg-light text-start">
+            <div class="container section-box">
+                <h2 class="text-start mb-4">PROJETOS</h2>
+                <p>Confira os principais projetos desenvolvidos pela CEP.</p>
+                <!-- Adicione aqui os projetos -->
+            </div>
+        </section>
+
+        <!-- Seção: Produtos -->
+        <section id="produtos" class="py-5 text-start">
+            <div class="container section-box">
+                <h2 class="text-start mb-4">PRODUTOS</h2>
+                <p>Explore os produtos gerados pela Coordenadoria de Estudos e Pesquisa.</p>
+                <!-- Adicione aqui os produtos -->
+            </div>
+        </section>
+
+        <!-- Seção: Eventos -->
+        <section id="eventos" class="py-5 bg-light text-start">
+            <div class="container section-box">
+                <h2 class="text-start mb-4">EVENTOS</h2>
+                <p>Participe dos eventos organizados pela CEP.</p>
+                <!-- Adicione aqui os eventos -->
+            </div>
+        </section>
+
+        <section id="estatisticas" class="py-5 text-start">
+            <div class="container section-box">
+                <h2 class="text-start mb-4">ESTATÍSTICAS</h2>
+                <p>A Coordenadoria de Estudos e Pesquisa (CEP) realiza análises detalhadas sobre processos e projetos rodoviários, fornecendo informações estratégicas para a tomada de decisão.</p>
+                
+                <!-- Gráficos organizados em uma única coluna, ocupando toda a largura -->
+                <div class="grafico-box mb-4 w-100">
+                    <canvas id="2025_processos_com_andamento_aberto_na_cep_barra"></canvas>
+                </div>
+                <div class="grafico-box mb-4 w-100">
+                    <canvas id="2025_processos_com_andamento_fechado_na_cep_barra"></canvas>
+                </div>
+                <div class="grafico-box mb-4 w-100">
+                    <canvas id="2025_processos_com_tramitacao_barra"></canvas>
+                </div>
+                <div class="grafico-box mb-4 w-100">
+                    <canvas id="2025_tempo_medio_tramitacao_barra"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Contato -->
+        <section id="contato" class="py-5 text-start">
+            <div class="container section-box">
+                <h2 class="text-start mb-4">CONTATO</h2>
+                <p>Em breve, informações de contato da CEP.</p>
+            </div>
+        </section>
+    </div>
+
+     <!-- Rodapé -->
+     <footer class="bg-dark text-white text-center py-3">
+        <p>© 2025 Coordenadoria de Estudos e Pesquisa - DER/SP</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.querySelector(".nav-toggle").addEventListener("click", function () {
+            document.querySelector(".menu-toggle").classList.toggle("active");
+        });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="config_page/scripts/bootstrap-cep.js"></script>
+</body>
+</html>
