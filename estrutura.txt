@@ -1,0 +1,92 @@
+.
+├── config_page
+│   ├── modelos .css
+│   │   ├── barra-contraste-govsp.min.css
+│   │   ├── bootstrap.css
+│   │   ├── conteiner_DER
+│   │   ├── font-awesome.min.css
+│   │   ├── linha_menu.css
+│   │   ├── main.css
+│   │   ├── menu_comum.css
+│   │   ├── rodape-padrao-govsp.min.css
+│   │   └── topo-padrao-govsp.min.css
+│   └── scripts
+│       ├── bootstrap-cep.js
+│       ├── jquery-3.3.1.min.js
+│       ├── jquery.js
+│       ├── script-contrast.js
+│       ├── script-scroll.js
+│       ├── script-tamanho-fonte.js
+│       └── script-topo.js
+├── data
+│   ├── CAPA_DER_001_paisagem_claro.jpg
+│   ├── data_stat
+│   │   ├── 2023
+│   │   │   ├── estatisticas_da_unidade_SEIPro_processos_com_andamento_aberto_na_unidade.csv
+│   │   │   ├── estatisticas_da_unidade_SEIPro_processos_com_andamento_fechado_na_unidade.csv
+│   │   │   ├── estatisticas_da_unidade_SEIPro_processos_com_tramitacao.csv
+│   │   │   ├── estatisticas_da_unidade_SEIPro_processos_gerados.csv
+│   │   │   └── estatisticas_da_unidade_SEIPro_tempos_medios_de_tramitacao.csv
+│   │   ├── 2024
+│   │   │   ├── estatisticas_da_unidade_SEIPro_documentos_gerados.csv
+│   │   │   ├── estatisticas_da_unidade_SEIPro_processos_com_aberto_fechado_na_cep.csv
+│   │   │   ├── estatisticas_da_unidade_SEIPro_processos_com_andamento_fechado_na_cep.csv
+│   │   │   ├── estatisticas_da_unidade_SEIPro_processos_com_tramitacao_no_periodo.csv
+│   │   │   ├── estatisticas_da_unidade_SEIPro_processos_gerados_no_periodo.csv
+│   │   │   ├── estatisticas_da_unidade_SEIPro_tempo_medio_de_tramitacao.csv
+│   │   │   └── readme.txt
+│   │   └── 2025
+│   │       ├── estatisticas_da_unidade_SEIPro_processos_com_andamento_aberto_na_cep.csv
+│   │       ├── estatisticas_da_unidade_SEIPro_processos_com_andamento_fechado_na_cep.csv
+│   │       ├── estatisticas_da_unidade_SEIPro_processos_com_tramitacao.csv
+│   │       ├── estatisticas_da_unidade_SEIPro_processos_gerados_no_periodo.csv
+│   │       ├── estatisticas_da_unidade_SEIPro_tempo_medio_tramitacao.csv
+│   │       └── readme.txt
+│   ├── der_capa_001_paisagem_escuro.jpg
+│   ├── der_layout_001_paisagem_claro.jpg
+│   ├── der_layout_001_paisagem_escuro.jpg
+│   ├── i-big-font.png
+│   ├── i-contrast.png
+│   ├── i-error-report.png
+│   ├── i-small-font.png
+│   ├── logo-governo-do-estado-sp.png
+│   ├── logo-rodape-governo-do-estado-sp.png
+│   ├── logo_der.png
+│   ├── logo_sp.png
+│   ├── logo_sp_pt_slogan_horizontal.png
+│   ├── logo_sp_pt_slogan_horizontal_branca.png
+│   ├── stat
+│   └── team.json
+├── equipe.html
+├── estrutura.txt
+├── favicon.ico
+├── graficos
+│   ├── 2023_processos_com_andamento_aberto_na_unidade_barra.js
+│   ├── 2023_processos_com_andamento_fechado_na_unidade_barra.js
+│   ├── 2023_processos_com_tramitacao_barra.js
+│   ├── 2023_tempos_medios_de_tramitacao_barra.js
+│   ├── 2024_documentos_gerados_barra.js
+│   ├── 2024_processos_com_aberto_fechado_na_cep_barra.js
+│   ├── 2024_processos_com_andamento_fechado_na_cep_barra.js
+│   ├── 2024_processos_com_tramitacao_no_periodo_barra.js
+│   ├── 2024_processos_gerados_no_periodo_barra.js
+│   ├── 2024_tempo_medio_de_tramitacao_barra.js
+│   ├── 2025_processos_com_andamento_aberto_na_cep_barra.js
+│   ├── 2025_processos_com_andamento_fechado_na_cep_barra.js
+│   ├── 2025_processos_com_tramitacao_barra.js
+│   ├── 2025_tempo_medio_tramitacao_barra.js
+│   ├── barra.js
+│   ├── coluna_empilhada.js
+│   ├── generate_bar_graphs.js
+│   └── graficos.css
+├── index.html
+├── index_20250210.html
+├── index_backup.html
+├── scripts.js
+├── styles.css
+├── teste.html
+└── workspaces
+    └── website-
+        └── data
+
+12 directories, 77 files
