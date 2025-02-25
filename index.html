@@ -504,36 +504,59 @@
                 <p style="text-align: justify;">A CEP é composta por uma equipe multidisciplinar altamente qualificada, reunindo profissionais especializados em segurança viária, engenharia de tráfego, resiliência climática, sensoriamento remoto, geoprocessamento e cartografia digital. Essa diversidade de conhecimento permite uma abordagem abrangente e integrada no desenvolvimento de estudos e projetos, garantindo soluções mais eficientes e inovadoras para a infraestrutura rodoviária do Estado de São Paulo. A sinergia entre essas áreas fortalece a capacidade da CEP de enfrentar desafios complexos e propor melhorias estratégicas, sempre com foco na segurança, sustentabilidade e eficiência do transporte.</p>
                 <!-- Adicione aqui os membros da equipe -->
             </div>
+            <div class="text-center mt-4">
+                <a href="src/pages/equipe.html" class="btn btn-primary">Conheça nossa equipe</a>
+            </div>
+            
         </section>
 
+       
         <!-- Seção: Projetos -->
         <section id="projetos" class="py-5 bg-light text-start">
             <div class="container section-box">
                 <h2 class="text-start mb-4">PROJETOS</h2>
                 <p>Confira os principais projetos desenvolvidos pela CEP.</p>
-                <!-- Adicione aqui os projetos -->
+                
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">ESTADUALIZAÇÃO</h5>
+                                <p class="card-text">É o processo administrativo e legal de transferência de dominialidade/propriedade, gestão e administração de trechos rodoviários municipais para o estado, visando melhorar a infraestrutura e promover o desenvolvimento regional.</p>
+                                <a href="https://vinicapanema.github.io/estadualizacao-der/" target="_blank" class="btn btn-primary">Acessar Página</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col"><div class="card shadow-sm h-100"></div></div>
+                    <div class="col"><div class="card shadow-sm h-100"></div></div>
+                    <div class="col"><div class="card shadow-sm h-100"></div></div>
+                </div>
             </div>
         </section>
+        
 
         <!-- Seção: Produtos -->
         <section id="produtos" class="py-5 text-start">
             <div class="container section-box">
-              <h2 class="text-start mb-4">PRODUTOS</h2>
-              <p>Explore os produtos gerados pela Coordenadoria de Estudos e Pesquisa.</p>
-              
-              <!-- Novo Conteiner para a Calculadora AHP -->
-              <div class="card shadow-sm mt-4" style="max-width: 400px; margin: auto;">
-                <div class="card-body text-center">
-                  <h5 class="card-title">Calculadora AHP</h5>
-                  <p class="card-text">Utilize nossa ferramenta interativa para análise hierárquica e suporte à decisão.</p>
-                  <a href="https://vinicapanema.github.io/AHP_tool/" target="_blank" class="btn btn-primary">Acessar Calculadora</a>
+                <h2 class="text-start mb-4">PRODUTOS</h2>
+                <p>Explore os produtos gerados pela Coordenadoria de Estudos e Pesquisa.</p>
+                
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Calculadora AHP</h5>
+                                <p class="card-text">Utilize nossa ferramenta interativa para análise hierárquica e suporte à decisão.</p>
+                                <a href="https://vinicapanema.github.io/AHP_tool/" target="_blank" class="btn btn-primary">Acessar Calculadora</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col"><div class="card shadow-sm h-100"></div></div>
+                    <div class="col"><div class="card shadow-sm h-100"></div></div>
+                    <div class="col"><div class="card shadow-sm h-100"></div></div>
                 </div>
-              </div>
-              <!-- Fim do novo conteiner -->
-              
-              <!-- Adicione aqui os demais produtos -->
             </div>
-          </section>
+        </section>
           
 
         <!-- Seção: Eventos -->
@@ -545,26 +568,23 @@
             </div>
         </section>
 
+
+        <!-- Seção: Estatísticas -->
         <section id="estatisticas" class="py-5 text-start">
             <div class="container section-box">
                 <h2 class="text-start mb-4">ESTATÍSTICAS</h2>
                 <p style="text-align: justify;">A Coordenadoria de Estudos e Pesquisa (CEP) realiza análises detalhadas sobre processos e projetos rodoviários, fornecendo informações estratégicas para a tomada de decisão.</p>
                 
-                <!-- Gráficos organizados em uma única coluna, ocupando toda a largura -->
-                <div class="grafico-box mb-4 w-100">
-                    <canvas id="2025_processos_com_andamento_aberto_na_cep_barra"></canvas>
-                </div>
-                <div class="grafico-box mb-4 w-100">
-                    <canvas id="2025_processos_com_andamento_fechado_na_cep_barra"></canvas>
-                </div>
-                <div class="grafico-box mb-4 w-100">
-                    <canvas id="2025_processos_com_tramitacao_barra"></canvas>
-                </div>
-                <div class="grafico-box mb-4 w-100">
-                    <canvas id="2025_tempo_medio_tramitacao_barra"></canvas>
+                <a href="src/pages/estatisticas.html" class="btn btn-secondary mb-4">Estatísticas da Série Histórica</a>
+                
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col"><div class="card shadow-sm h-100"><canvas id="2025_processos_com_andamento_aberto_na_cep_barra"></canvas></div></div>
+                    <div class="col"><div class="card shadow-sm h-100"><canvas id="2025_processos_com_andamento_fechado_na_cep_barra"></canvas></div></div>
+                    <div class="col"><div class="card shadow-sm h-100"><canvas id="2025_processos_com_tramitacao_barra"></canvas></div></div>
+                    <div class="col"><div class="card shadow-sm h-100"><canvas id="2025_tempo_medio_tramitacao_barra"></canvas></div></div>
                 </div>
             </div>
-        </section>
+        </section>>
 
         <!-- Seção: Contato -->
         <section id="contato" class="py-5 text-start">
@@ -601,8 +621,9 @@
     </script> --> 
     
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">  
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </body>
 </html>

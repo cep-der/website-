@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>COORDENADORIA DE ESTUDOS E PESQUISAS</title>
+
+    <!-- Estilos e Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="config_page/modelos_css/linha_menu.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        .header-bg {
+            background: url('data/CAPA_DER_001_paisagem_claro.jpg') no-repeat center center;
+            background-size: cover;
+            color: rgb(14, 4, 4);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Cabeçalho -->
+        <header class="header-bg text-center py-4">
+            <div class="container">
+                <h1 class="fw-bold">COORDENADORIA DE ESTUDOS E PESQUISAS</h1>
+                <h2 class="fw-bold">Estatísticas da Série Histórica</h2>
+            </div>
+        </header>
+       
+        <!-- Barra de Menu -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a href="index.html">
+                    <img src="https://github.com/cep-der/website-/blob/main/data/CEP2.jpeg?raw=true" alt="Logo CEP" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Quem Somos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Projetos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Eventos</a></li>
+                    </ul>
+                </div>
+                <a href="https://www.der.sp.gov.br/">
+                    <img src="https://www.der.sp.gov.br/WebSite/img/logoDER.png" alt="Logo DER" height="50">
+                </a>
+            </div>
+        </nav>
+        
+        <!-- Conteúdo Principal -->
+        <main class="container py-5">
+            <h3 class="text-center">Visualização das Estatísticas Históricas</h3>
+            <p class="text-center">Acompanhe os dados estatísticos ao longo dos anos.</p>
+            
+            <div class="container text-center my-4">
+                <label for="yearSelect" class="fw-bold">Selecione o ano:</label>
+                <select id="yearSelect" class="form-select w-auto d-inline-block">
+                    <option value="todos">Todos</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-2 g-4 year-section" id="charts-2025">
+                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2025_1"></canvas></div></div>
+                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2025_2"></canvas></div></div>
+                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2025_3"></canvas></div></div>
+                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2025_4"></canvas></div></div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-2 g-4 year-section" id="charts-2024">
+                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2024_1"></canvas></div></div>
+                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2024_2"></canvas></div></div>
+                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2024_3"></canvas></div></div>
+                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2024_4"></canvas></div></div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-2 g-4 year-section" id="charts-2023">
+                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2023_1"></canvas></div></div>
+                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2023_2"></canvas></div></div>
+                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2023_3"></canvas></div></div>
+                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2023_4"></canvas></div></div>
+            </div>
+        </main>
+        
+        <!-- Rodapé -->
+        <footer class="bg-dark text-white text-center py-3">
+            <p>&copy; 2025 Coordenadoria de Estudos e Pesquisa - DER/SP</p>
+            <img src="https://www.saopaulo.sp.gov.br/barra-govsp/img/logo-rodape-governo-do-estado-sp.png" alt="Governo de SP" width="206">
+        </footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const yearSelect = document.getElementById("yearSelect");
+            const sections = document.querySelectorAll(".year-section");
+            function updateVisibility() {
+                const selectedYear = yearSelect.value;
+                sections.forEach(section => {
+                    section.style.display = (selectedYear === "todos" || section.id === `charts-${selectedYear}`) ? "flex" : "none";
+                });
+            }
+            yearSelect.addEventListener("change", updateVisibility);
+            updateVisibility();
+        });
+    </script>
+</body>
+</html>
