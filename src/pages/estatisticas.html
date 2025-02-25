@@ -10,11 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://raw.githubusercontent.com/cep-der/website-/main/graficos/graficos.css">
     <link rel="stylesheet" href="https://raw.githubusercontent.com/cep-der/website-/main/config_page/modelos_css/linha_menu.css">
-    
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-   
 
+
+    <link rel="icon" href="https://www.der.sp.gov.br/WebSite/img/logoDER.png" type="image/x-icon">
+
+
+    <!-- Importação do Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
     <style>
         .header-bg {
@@ -24,7 +27,6 @@
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
 
-        /* Oculta os contêineres ao carregar a página */
         .year-container {
             display: none;
             margin-bottom: 40px;
@@ -38,7 +40,6 @@
             color: #333;
         }
 
-        /* Organização dos gráficos */
         .sub-container {
             display: flex;
             justify-content: space-between;
@@ -70,25 +71,8 @@
             }
         }
     </style>
-    <style>
-        .navbar {
-                    background-color: #343a40 !important; /* Cinza escuro */
-                }
-            
-                .navbar .nav-link {
-                    color: #ffffff !important; /* Texto branco para contraste */
-                }
-            
-                .navbar .nav-link:hover {
-                    color: #d1d1d1 !important; /* Cinza mais claro ao passar o mouse */
-                }
-            
-                .navbar-toggler-icon {
-                    filter: invert(1); /* Torna o ícone do menu responsivo branco */
-                }
-    </style>
-    
 </head>
+
 <body>
     <div class="container-fluid">
         <!-- Barra do Governo de São Paulo -->
@@ -185,7 +169,7 @@
         <main class="container py-5">
             <h3 class="text-center">Visualização das Estatísticas Históricas</h3>
             <p class="text-center">Acompanhe os dados estatísticos ao longo dos anos.</p>
-
+    
             <div class="container text-center my-4">
                 <label for="yearSelect" class="fw-bold">Selecione o ano:</label>
                 <select id="yearSelect" class="form-select w-auto d-inline-block">
@@ -196,8 +180,7 @@
                     <option value="2023">2023</option>
                 </select>
             </div>
-
-            <!-- Contêineres de cada ano -->
+    
             <div id="charts-container">
                 <div class="year-container" id="year-2025">
                     <div class="year-title">Estatísticas de 2025</div>
@@ -208,7 +191,7 @@
                         <div class="grafico-box"><canvas id="2025_tempo_medio_tramitacao_barra"></canvas></div>
                     </div>
                 </div>
-
+    
                 <div class="year-container" id="year-2024">
                     <div class="year-title">Estatísticas de 2024</div>
                     <div class="sub-container">
@@ -218,7 +201,7 @@
                         <div class="grafico-box"><canvas id="2024_processos_gerados_no_periodo_barra"></canvas></div>
                     </div>
                 </div>
-
+    
                 <div class="year-container" id="year-2023">
                     <div class="year-title">Estatísticas de 2023</div>
                     <div class="sub-container">
@@ -230,24 +213,39 @@
                 </div>
             </div>
         </main>
-
-        <!-- Scripts -->
+    
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 const yearSelect = document.getElementById("yearSelect");
                 const yearContainers = document.querySelectorAll(".year-container");
-
+    
                 function updateVisibility() {
                     const selectedYear = yearSelect.value;
                     yearContainers.forEach(container => {
                         container.style.display = (selectedYear === "todos" || container.id === `year-${selectedYear}`) ? "block" : "none";
                     });
                 }
-
+    
                 yearSelect.addEventListener("change", updateVisibility);
-                updateVisibility(); // Executa a função ao carregar a página
+                updateVisibility();
             });
         </script>
+    
+        <!-- Scripts de gráficos -->
+        <script src="graficos/2023_tempos_medios_de_tramitacao_barra.js"></script>
+        <script src="graficos/2024_processos_com_aberto_fechado_na_cep_barra.js"></script>
+        <script src="graficos/2023_processos_com_andamento_aberto_na_unidade_barra.js"></script>
+        <script src="graficos/2024_tempo_medio_de_tramitacao_barra.js"></script>
+        <script src="graficos/2024_processos_com_tramitacao_no_periodo_barra.js"></script>
+        <script src="graficos/2024_processos_gerados_no_periodo_barra.js"></script>
+        <script src="graficos/2025_processos_com_andamento_aberto_na_cep_barra.js"></script>
+        <script src="graficos/2025_processos_com_andamento_fechado_na_cep_barra.js"></script>
+        <script src="graficos/2025_processos_com_tramitacao_barra.js"></script>
+        <script src="graficos/2025_tempo_medio_tramitacao_barra.js"></script>
+        <script src="graficos/2023_processos_com_tramitacao_barra.js"></script>
 
+        
+        
+    
     </body>
-</html>
+    </html>

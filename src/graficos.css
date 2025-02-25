@@ -1,0 +1,56 @@
+/* Estilos específicos para gráficos */
+
+/* Grade de gráficos */
+.grafico-box {
+    height: auto;
+    min-height: 300px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste responsivo dos gráficos */
+@media (max-width: 768px) {
+    .grafico-box {
+        height: auto;
+        min-height: 250px;
+        margin-bottom: 15px;
+    }
+}
+
+/* Container do canvas */
+.grafico-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+/* Estilo para a legenda dos gráficos */
+#legenda-container {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+#legenda-container div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#legenda-container div div {
+    flex: 1;
+}
+
+#legenda-container div div div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#legenda-container span {
+    font-size: 10px;
+}
