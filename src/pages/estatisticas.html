@@ -8,9 +8,13 @@
     <!-- Estilos e Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="graficos/graficos.css">
     <link rel="stylesheet" href="config_page/modelos_css/linha_menu.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+   
+
+
     <style>
         .header-bg {
             background: url('data/CAPA_DER_001_paisagem_claro.jpg') no-repeat center center;
@@ -18,10 +22,133 @@
             color: rgb(14, 4, 4);
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
+
+        /* Oculta os contêineres ao carregar a página */
+        .year-container {
+            display: none;
+            margin-bottom: 40px;
+        }
+
+        .year-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Organização dos gráficos */
+        .sub-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .grafico-box {
+            flex: 1 1 calc(50% - 15px);
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        canvas {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .grafico-box {
+                flex: 1 1 100%;
+            }
+        }
     </style>
+    <style>
+        .navbar {
+                    background-color: #343a40 !important; /* Cinza escuro */
+                }
+            
+                .navbar .nav-link {
+                    color: #ffffff !important; /* Texto branco para contraste */
+                }
+            
+                .navbar .nav-link:hover {
+                    color: #d1d1d1 !important; /* Cinza mais claro ao passar o mouse */
+                }
+            
+                .navbar-toggler-icon {
+                    filter: invert(1); /* Torna o ícone do menu responsivo branco */
+                }
+    </style>
+    
 </head>
 <body>
     <div class="container-fluid">
+        <!-- Barra do Governo de São Paulo -->
+        <div class="row border_shadow_barra_top">
+            <section class="govsp-topo"> 
+                <link rel="stylesheet" type="text/css" href="https://saopaulo.sp.gov.br/barra-govsp/css/topo-padrao-govsp.min.css">
+                <link rel="stylesheet" type="text/css" href="https://saopaulo.sp.gov.br/barra-govsp/css/barra-contraste-govsp.min.css">  
+                    <div id="govsp-topbarGlobal" class="blu-e">
+                            <div id="topbarGlobal">
+                                <div id="topbarLink" class="govsp-black">
+                                <div class="govsp-portal">
+                                    <a href="http://www.saopaulo.sp.gov.br/">
+                                        <img src="https://saopaulo.sp.gov.br/barra-govsp/img/logo-governo-do-estado-sp.png" alt="Governo do Estado de São Paulo" height="38" class="logo">
+                                    </a>
+                                </div> 
+                            </div>
+                            <nav class="govsp-navbar govsp-navbar-expand-lg">
+                                
+                                    
+                
+                                    <a class="govsp-social" href="https://www.flickr.com/governosp/" target="_blank"><img class="govsp-icon-social" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-flickr.png" alt="Flickr Governo de São Paulo"></a>
+                                                        
+                                    <a class="govsp-social" href="https://www.linkedin.com/company/governosp/" target="_blank"><img class="govsp-icon-social" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-linkedin.png" alt="Linkedin Governo de São Paulo"></a>
+                
+                                    <a class="govsp-social" href="https://www.tiktok.com/@governosp" target="_blank"><img class="govsp-icon-social" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-tiktok.png" alt="TikTok Governo de São Paulo"></a>
+                                    
+                                    
+                                    <a class="govsp-social" href="https://www.youtube.com/governosp/" target="_blank"><img class="govsp-icon-social" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-youtube.png" alt="Youtube Governo de São Paulo"></a>
+                                    
+                                    <a class="govsp-social" href="https://www.twitter.com/governosp/" target="_blank"><img class="govsp-icon-social" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-twitter.png" alt="Facebook Governo de São Paulo"></a>
+                
+                                    <a class="govsp-social" href="https://www.instagram.com/governosp/" target="_blank"><img class="govsp-icon-social" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-insta.png" alt="Instagram Governo de São Paulo"></a>     
+                                                
+                                    <a class="govsp-social" href="https://www.facebook.com/governosp/" target="_blank"><img class="govsp-icon-social" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-facebook.png" alt="Facebook Governo de São Paulo"></a>
+                                    
+                                    
+                                    <p class="govsp-social">/governosp</p>
+                                    <div id="separador-nav"></div>
+                                    <a class="govsp-acessibilidade" href="javascript:mudaTamanho('body', 1);"><img class="govsp-acessibilidade" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-big-font.png" alt="Aumentar Fonte"></a>
+                                    <a class="govsp-acessibilidade" href="javascript:mudaTamanho('body', -1);"><img class="govsp-acessibilidade" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-small-font.png" alt="Diminuir Fonte"></a>
+                                    <a class="govsp-acessibilidade" href="#" id="altocontraste" accesskey="3" onclick="window.toggleContrast()" onkeydown="window.toggleContrast()"><img class="govsp-acessibilidade" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-contrast.png" alt="Contraste"></a>
+                                    <a class="govsp-acessibilidade" href="http://www.saopaulo.sp.gov.br/fale-conosco/comunicar-erros/" title="Comunicar Erros" target="_blank"><img class="govsp-acessibilidade" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-error-report.png"></a>
+                                    
+                            </nav>
+                        </div>
+                        <div class="govsp-kebab">
+                                <figure></figure>
+                                <figure class="govsp-middle"></figure>
+                                <p class="govsp-cross"></p>
+                                <figure></figure>
+                                <ul class="govsp-dropdown" id="govsp-kebab">               
+                                    
+                                </ul> 
+                        </div>
+                    </div>
+                    <script src="https://saopaulo.sp.gov.br/barra-govsp/js/script-topo.js"></script>
+                    <script src="https://saopaulo.sp.gov.br/barra-govsp/js/script-contrast.js"></script>
+                    <script src="https://saopaulo.sp.gov.br/barra-govsp/js/script-tamanho-fonte.js"></script>
+                    <script src="https://saopaulo.sp.gov.br/barra-govsp/js/script-scroll.js"></script>
+            </section>
+        </div>
         <!-- Cabeçalho -->
         <header class="header-bg text-center py-4">
             <div class="container">
@@ -29,11 +156,11 @@
                 <h2 class="fw-bold">Estatísticas da Série Histórica</h2>
             </div>
         </header>
-       
+
         <!-- Barra de Menu -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container d-flex justify-content-between align-items-center">
-                <a href="index.html">
+                <a href="https://cep-der.github.io/website-/">
                     <img src="https://github.com/cep-der/website-/blob/main/data/CEP2.jpeg?raw=true" alt="Logo CEP" height="50">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -52,15 +179,16 @@
                 </a>
             </div>
         </nav>
-        
+
         <!-- Conteúdo Principal -->
         <main class="container py-5">
             <h3 class="text-center">Visualização das Estatísticas Históricas</h3>
             <p class="text-center">Acompanhe os dados estatísticos ao longo dos anos.</p>
-            
+
             <div class="container text-center my-4">
                 <label for="yearSelect" class="fw-bold">Selecione o ano:</label>
                 <select id="yearSelect" class="form-select w-auto d-inline-block">
+                    <option value="" selected disabled>Selecione</option>
                     <option value="todos">Todos</option>
                     <option value="2025">2025</option>
                     <option value="2024">2024</option>
@@ -68,51 +196,57 @@
                 </select>
             </div>
 
-            <div class="row row-cols-1 row-cols-md-2 g-4 year-section" id="charts-2025">
-                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2025_1"></canvas></div></div>
-                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2025_2"></canvas></div></div>
-                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2025_3"></canvas></div></div>
-                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2025_4"></canvas></div></div>
-            </div>
+            <!-- Contêineres de cada ano -->
+            <div id="charts-container">
+                <div class="year-container" id="year-2025">
+                    <div class="year-title">Estatísticas de 2025</div>
+                    <div class="sub-container">
+                        <div class="grafico-box"><canvas id="2025_processos_com_andamento_aberto_na_cep_barra"></canvas></div>
+                        <div class="grafico-box"><canvas id="2025_processos_com_andamento_fechado_na_cep_barra"></canvas></div>
+                        <div class="grafico-box"><canvas id="2025_processos_com_tramitacao_barra"></canvas></div>
+                        <div class="grafico-box"><canvas id="2025_tempo_medio_tramitacao_barra"></canvas></div>
+                    </div>
+                </div>
 
-            <div class="row row-cols-1 row-cols-md-2 g-4 year-section" id="charts-2024">
-                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2024_1"></canvas></div></div>
-                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2024_2"></canvas></div></div>
-                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2024_3"></canvas></div></div>
-                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2024_4"></canvas></div></div>
-            </div>
+                <div class="year-container" id="year-2024">
+                    <div class="year-title">Estatísticas de 2024</div>
+                    <div class="sub-container">
+                        <div class="grafico-box"><canvas id="2024_processos_com_aberto_fechado_na_cep_barra"></canvas></div>
+                        <div class="grafico-box"><canvas id="2024_tempo_medio_de_tramitacao_barra"></canvas></div>
+                        <div class="grafico-box"><canvas id="2024_processos_com_tramitacao_no_periodo_barra"></canvas></div>
+                        <div class="grafico-box"><canvas id="2024_processos_gerados_no_periodo_barra"></canvas></div>
+                    </div>
+                </div>
 
-            <div class="row row-cols-1 row-cols-md-2 g-4 year-section" id="charts-2023">
-                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2023_1"></canvas></div></div>
-                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2023_2"></canvas></div></div>
-                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2023_3"></canvas></div></div>
-                <div class="col"><div class="card shadow-sm h-100"><canvas id="grafico_2023_4"></canvas></div></div>
+                <div class="year-container" id="year-2023">
+                    <div class="year-title">Estatísticas de 2023</div>
+                    <div class="sub-container">
+                        <div class="grafico-box"><canvas id="2023_tempos_medios_de_tramitacao_barra"></canvas></div>
+                        <div class="grafico-box"><canvas id="2023_processos_com_andamento_aberto_na_unidade_barra"></canvas></div>
+                        <div class="grafico-box"><canvas id="2023_processos_com_tramitacao_barra"></canvas></div>
+                        <div class="grafico-box"><canvas id="2023_processos_com_andamento_fechado_na_unidade_barra"></canvas></div>
+                    </div>
+                </div>
             </div>
         </main>
-        
-        <!-- Rodapé -->
-        <footer class="bg-dark text-white text-center py-3">
-            <p>&copy; 2025 Coordenadoria de Estudos e Pesquisa - DER/SP</p>
-            <img src="https://www.saopaulo.sp.gov.br/barra-govsp/img/logo-rodape-governo-do-estado-sp.png" alt="Governo de SP" width="206">
-        </footer>
-    </div>
-    
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const yearSelect = document.getElementById("yearSelect");
-            const sections = document.querySelectorAll(".year-section");
-            function updateVisibility() {
-                const selectedYear = yearSelect.value;
-                sections.forEach(section => {
-                    section.style.display = (selectedYear === "todos" || section.id === `charts-${selectedYear}`) ? "flex" : "none";
-                });
-            }
-            yearSelect.addEventListener("change", updateVisibility);
-            updateVisibility();
-        });
-    </script>
-</body>
+
+        <!-- Scripts -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const yearSelect = document.getElementById("yearSelect");
+                const yearContainers = document.querySelectorAll(".year-container");
+
+                function updateVisibility() {
+                    const selectedYear = yearSelect.value;
+                    yearContainers.forEach(container => {
+                        container.style.display = (selectedYear === "todos" || container.id === `year-${selectedYear}`) ? "block" : "none";
+                    });
+                }
+
+                yearSelect.addEventListener("change", updateVisibility);
+                updateVisibility(); // Executa a função ao carregar a página
+            });
+        </script>
+
+    </body>
 </html>
