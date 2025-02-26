@@ -13,15 +13,68 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         .header-bg {
-            background: url('data/CAPA_DER_001_paisagem_claro.jpg') no-repeat center center;
+            background: url('data/CAPA_DER_001_paisagem_claro.jpg') no-repeat center center; 
             background-size: cover;
             color: rgb(14, 4, 4);
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
     </style>
+    <style>
+        .tree {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .tree ul {
+            padding-top: 20px; position: relative;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        .tree li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        .tree li::before, .tree li::after {
+            content: '';
+            position: absolute; top: 0; left: 50%;
+            border-top: 2px solid #ccc;
+            width: 50%;
+            height: 20px;
+        }
+        .tree li::after {
+            left: auto; right: 50%;
+            border-left: 2px solid #ccc;
+        }
+        .tree li:first-child::before, .tree li:last-child::after {
+            border: 0;
+        }
+        .tree li a {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: black;
+        }
+        .tree li img {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            border: 3px solid #007bff;
+            object-fit: cover;
+        }
+        .tree li span {
+            margin-top: 5px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
+
         <!-- Barra do Governo de São Paulo -->
         <div class="row border_shadow_barra_top">
             <section class="govsp-topo"> 
@@ -41,7 +94,7 @@
                                     
                 
                                     <a class="govsp-social" href="https://www.flickr.com/governosp/" target="_blank"><img class="govsp-icon-social" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-flickr.png" alt="Flickr Governo de São Paulo"></a>
-                                                       
+                                                        
                                     <a class="govsp-social" href="https://www.linkedin.com/company/governosp/" target="_blank"><img class="govsp-icon-social" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-linkedin.png" alt="Linkedin Governo de São Paulo"></a>
                 
                                     <a class="govsp-social" href="https://www.tiktok.com/@governosp" target="_blank"><img class="govsp-icon-social" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-tiktok.png" alt="TikTok Governo de São Paulo"></a>
@@ -54,7 +107,7 @@
                                     <a class="govsp-social" href="https://www.instagram.com/governosp/" target="_blank"><img class="govsp-icon-social" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-insta.png" alt="Instagram Governo de São Paulo"></a>     
                                                 
                                     <a class="govsp-social" href="https://www.facebook.com/governosp/" target="_blank"><img class="govsp-icon-social" src="https://saopaulo.sp.gov.br/barra-govsp/img/i-facebook.png" alt="Facebook Governo de São Paulo"></a>
-                                   
+                                    
                                     
                                     <p class="govsp-social">/governosp</p>
                                     <div id="separador-nav"></div>
@@ -86,10 +139,10 @@
         <header class="header-bg text-center py-4">
             <div class="container">
                 <h1 class="fw-bold">COORDENADORIA DE ESTUDOS E PESQUISAS</h1>
-                <h2 class="fw-bold">TÍTULO DA SUBPAGINA</h2>
+                <h2 class="fw-bold">CONHEÇA A EQUIPE DA CEP</h2>
             </div>
         </header>
-       
+        
         <!-- Barra de Menu -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container d-flex justify-content-between align-items-center">
@@ -112,22 +165,131 @@
                 </a>
             </div>
         </nav>
-        
-        <!-- Conteúdo Principal -->
-        <main class="container py-5">
-            <div class="text-center mt-4">
-                <a href="vinicius_capanema.html" class="btn btn-primary">Vinicius Capanema</a>
-            </div>
-            
-        </main>
-        
+             
+
+        <!-- Estrutura da árvore -->
+        <div class="tree">
+            <ul>
+                <!-- Raiz -->
+                <li>
+                    <a href="gean_kenid_sifronio_franco.html">
+                        <img src="https://github.com/cep-der/website-/raw/main/data/img_people/GEAN.jpg" alt="Gean Franco">
+                        <span>Gean Kenid Sifronio Franco</span>
+                        <span>Coordenador Geral de Planejamento e Pesquisa</span>
+                    </a>
+                    <ul>
+                        <!-- Segundo nível -->
+                        <li>
+                            <a href="bruna_donegá_alves.html">
+                                <img src="https://github.com/cep-der/website-/raw/main/data/img_people/BRUNA.jpg" alt="Bruna Alves">
+                                <span>Bruna Donegá Alves</span>
+                                <span> Coordenadora de Estudos e Pesquisas</span>
+                            </a>
+                            <ul>
+                                <!-- Terceiro nível agrupado por área de atuação -->
+                                <li>
+                                    <span>Área: Administrativo</span>
+                                    <ul>
+                                        <li>
+                                            <a href="ana_beatriz_de_melo_brito.html">
+                                                <img src="https://github.com/cep-der/website-/raw/main/data/img_people/ANA.jpg" alt="Ana Beatriz Brito">
+                                                <span>Ana Beatriz Brito</span>
+                                                <span>Analista Administrativo</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span>Área: Pesquisa</span>
+                                    <ul>
+                                        <li>
+                                            <a href="carolina_iris_brasil_mariano.html">
+                                                <img src="https://github.com/cep-der/website-/raw/main/data/img_people/CAROL.jpg" alt="Carolina Mariano">
+                                                <span>Carolina Mariano</span>
+                                                <span>Especialista em Segurança Viária</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="lidiane_cristina_o_costa.html">
+                                                <img src="https://github.com/cep-der/website-/raw/main/data/img_people/LIDIANE.jpg" alt="Lidiane Costa">
+                                                <span>Lidiane Costa</span>
+                                                <span>Especialista em Geoprocessamento</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="alberto_pereira_zitzke.html">
+                                                <img src="https://github.com/cep-der/website-/raw/main/data/img_people/ALBERTO.jpg" alt="Alberto Zitzke">
+                                                <span>Alberto Zitzke</span>
+                                                <span>Especialista em Engenharia de Tráfego</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="vinicius_capanema.html">
+                                                <img src="https://github.com/cep-der/website-/raw/main/data/img_people/VINICIUS.jpg" alt="Vinicius Capanema">
+                                                <span>Vinicius Capanema</span>
+                                                <span>Especialista em Geoprocessamento</span>
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span>Área: Operação</span>
+                                    <ul>
+                                        <li>
+                                            <a href="beatriz_di_giovanni_valente.html">
+                                                <img src="https://github.com/cep-der/website-/raw/main/data/img_people/BEATRIZ.jpg" alt="Beatriz Valente">
+                                                <span>Beatriz Valente</span>
+                                                <span>Analista de Geoprocessamento</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="luciana_apfdatrino_freitas.html">
+                                                <img src="https://github.com/cep-der/website-/raw/main/data/img_people/LUCIANA.jpg" alt="Luciana Freitas">
+                                                <span>Luciana Freitas</span>
+                                                <span>Analista de Geoprocessamento</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="guilherme_bordin_martins.html">
+                                                <img src="https://github.com/cep-der/website-/raw/main/data/img_people/GUILHERME.jfif" alt="Guilherme Martins">
+                                                <span>Guilherme Martins</span>
+                                                <span>Engenheiro Junior</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span>Área: Inteligência de Dados</span>
+                                    <ul>
+                                        <li>
+                                            <a href="paulo_machado_de_oliveira.html">
+                                                <img src="https://github.com/cep-der/website-/raw/main/data/img_people/PAULO.jpg" alt="Paulo Oliveira">
+                                                <span>Paulo Oliveira</span>
+                                                <span>Analista de Dados</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="rodrigo_mota_messias.html">
+                                                <img src="https://github.com/cep-der/website-/raw/main/data/img_people/photo_linkedin_rodrigo_mota.jfif" alt="Rodrigo Messias">
+                                                <span>Rodrigo Messias</span>
+                                                <span>Analista de Dados</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
         <!-- Rodapé -->
         <footer class="bg-dark text-white text-center py-3">
             <p>&copy; 2025 Coordenadoria de Estudos e Pesquisa - DER/SP</p>
-            <img src="https://www.saopaulo.sp.gov.br/barra-govsp/img/logo-rodape-governo-do-estado-sp.png" alt="Governo de SP" width="206">
         </footer>
     </div>
-    
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
