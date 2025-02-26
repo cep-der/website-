@@ -1,85 +1,55 @@
-import os
 import pandas as pd
-import re
+import os
 
-# Definições de caminhos
-TEMPLATE_PATH = "src/pages/vinicius_capanema.html"
-OUTPUT_DIR = "src/pages/"
-CSV_PATH = "data/EQUIPE_CEP_BIO.csv"
+# Caminhos dos arquivos
+csv_path = "/workspaces/website-/EQUIPE_CEP_BIO_updated_webpage.csv"
+html_template_path = "/workspaces/website-/src/pages/vinicius_capanema.html"
+output_dir = "/workspaces/website-/src/pages/"
 
-# Carregar os dados do CSV
-df = pd.read_csv(CSV_PATH, delimiter=';', encoding='utf-8')
+# Verifica se o arquivo CSV existe antes de tentar abrir
+if not os.path.exists(csv_path):
+    print(f"Erro: O arquivo {csv_path} não foi encontrado!")
+    exit()
 
-# Transpor o dataframe para facilitar o acesso por chave
-df = df.set_index(df.columns[0]).transpose()
+# Tentativa de abrir o CSV com codificação alternativa
+try:
+    df = pd.read_csv(csv_path, encoding="ISO-8859-1")  # Alternativamente, tente "latin1" se necessário
+    print("Arquivo CSV carregado com sucesso!")
+except Exception as e:
+    print(f"Erro ao carregar o arquivo CSV: {e}")
+    exit()
 
-# Criar diretório de saída se não existir
-os.makedirs(OUTPUT_DIR, exist_ok=True)
+# Carregar o template HTML
+with open(html_template_path, "r", encoding="utf-8") as file:
+    template_html = file.read()
 
-# Iterar sobre os colaboradores (ignorando a primeira linha que contém os títulos)
-for _, row in df.iterrows():
-    nome_completo = row.get("NOME", "")
-    if not nome_completo:
-        continue
-    
-    partes_nome = nome_completo.split()
-    nome_arquivo = f"{partes_nome[0].lower()}_{partes_nome[-1].lower()}.html"
-    output_path = os.path.join(OUTPUT_DIR, nome_arquivo)
-    
-    # Ler o template
-    with open(TEMPLATE_PATH, "r", encoding="utf-8") as file:
-        conteudo = file.read()
-    
-    # Atualizar nome e imagem do colaborador
-    imagem_nome = partes_nome[0].upper() + ".jpg"
-    conteudo = conteudo.replace("Vinicius do Prado Capanema", nome_completo)
-    conteudo = conteudo.replace("VINICIUS.jpg", imagem_nome)
-    
-    # Substituir a área de atuação
-    conteudo = re.sub(
-        r"<section id=\"area de atuacao\" class=\"py-5 text-start\">.*?<p style=\"text-align: justify;font-size: 20px;\">.*?</p>",
-        f"<section id=\"area de atuacao\" class=\"py-5 text-start\"><div class='container section-box'><h2 class='text-start mb-4'>ÁREA DE ATUAÇÃO</h2><p style=\"text-align: justify;font-size: 20px;\">{row.get('ÁREA DE ATUAÇÃO', '')}</p></div></section>",
-        conteudo,
-        flags=re.DOTALL
-    )
-    
-    # Substituir a formação acadêmica
-    formacoes = row.get("FORMACAO", "").split("|")
-    formacao_html = "\n".join([f"<p style=\"text-align: justify;font-size: 20px;\">{f.strip()}</p>" for f in formacoes if f.strip()])
-    conteudo = re.sub(
-        r"<section id=\"formacao academica\" class=\"py-5 text-start\">.*?<h2 class=\"text-start mb-4\">FORMAÇÃO ACADÊMICA</h2>.*?</div>",
-        f"<section id=\"formacao academica\" class=\"py-5 text-start\"><div class='container section-box'><h2 class='text-start mb-4'>FORMAÇÃO ACADÊMICA</h2>{formacao_html}</div></section>",
-        conteudo,
-        flags=re.DOTALL
-    )
-    
-    # Substituir a biografia
-    conteudo = re.sub(
-        r"<section id=\"biografia\" class=\"py-5 text-start\">.*?<p></p>",
-        f"<section id=\"biografia\" class=\"py-5 text-start\"><div class='container section-box'><h2 class='text-start mb-4'>BIOGRAFIA</h2><p>{row.get('BIO', '')}</p></div></section>",
-        conteudo,
-        flags=re.DOTALL
-    )
-    
-    # Criar a seção de contato
-    contato = f"""
-    <section id=\"contato\" class=\"py-5 text-start\">
-        <div class='container section-box'>
-            <h2 class='text-start mb-4'>CONTATO</h2>
-            <p>TELEFONE: (11) 3311-1400 / RAMAL: {row.get('RAMAL', '')}</p>
-            <p>E-MAIL: {row.get('EMAIL', '')}</p>
-            <p>LinkedIn: {row.get('URL LI', '')}</p>
-            <p>Lattes: {row.get('Lattes', '')}</p>
-            <p>ORCID: {row.get('ORCID', '')}</p>
-        </div>
-    </section>
-    """
-    conteudo = re.sub(
-        r"<section id=\"contato\" class=\"py-5 text-start\">.*?</section>", contato, conteudo, flags=re.DOTALL
-    )
-    
-    # Escrever a nova página
-    with open(output_path, "w", encoding="utf-8") as file:
-        file.write(conteudo)
-    
-    print(f"Página criada: {output_path}")
+# Função para substituir os dados e criar novas páginas
+def generate_html_files():
+    for _, row in df.iterrows():
+        new_html = template_html
+        
+        # Substituir os campos no HTML
+        new_html = new_html.replace("Vinicius do Prado Capanema", row["NOME"])
+        new_html = new_html.replace("Especialista em geoprocessamento", row["CARGO"])
+        new_html = new_html.replace("Pesquisa", row["ÁREA DE ATUAÇÃO"])
+        new_html = new_html.replace("Bacharelado em Engenharia Florestal (UNEMAT)", row["FORMAÇAO"])
+        new_html = new_html.replace("Vinicius do Prado Capanema é Especialista em geoprocessamento, atuando na área de Pesquisa. Possui formação em Bacharelado em Engenharia Florestal (UNEMAT), Especialização em Georreferenciamento de Imóveis Rurais (AJES), MBA em Gestão de Projetos (UNOPAR), Mestrado em  Sensoriamento Remoto (INPE) e Doutorado em Sensoriamento Remoto (INPE).", row["BIO"])
+        
+        # Remover as informações extras da formação e biografia
+        new_html = new_html.replace("<p style=\"font-weight: bold;font-size: 20px;\">Especialização em Georreferenciamento de Imóveis Rurais (AJES)</p>", "")
+        new_html = new_html.replace("<p style=\"font-weight: bold;font-size: 20px;\">MBA em Gestão de Projetos (UNOPAR)</p>", "")
+        new_html = new_html.replace("<p style=\"font-weight: bold;font-size: 20px;\">Mestrado em  Sensoriamento Remoto (INPE)</p>", "")
+        new_html = new_html.replace("<p style=\"font-weight: bold;font-size: 20px;\">Doutorado em Sensoriamento Remoto (INPE)</p>", "")
+        new_html = new_html.replace("<p style=\"text-align: justify;font-size: 20px;\">Com formação multidisciplinar, atua de maneira integrada na pesquisa, desenvolvimento e inovação na área de infraestrutura rodoviária...", "")
+
+        # Definir o nome do arquivo
+        file_name = f"{row['NOME'].lower().replace(' ', '_')}.html"
+        file_path = os.path.join(output_dir, file_name)
+        
+        # Salvar o novo HTML
+        with open(file_path, "w", encoding="utf-8") as new_file:
+            new_file.write(new_html)
+        print(f"Página gerada: {file_path}")
+
+# Executar a função para gerar os arquivos
+generate_html_files()
