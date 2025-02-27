@@ -213,6 +213,7 @@
 /* Faz com que os cards de Projetos e Produtos tenham a mesma altura dos cards de Estatísticas */
 #projetos .card, #produtos .card {
     min-height: 250px; /* Ajuste conforme necessário */
+    width: 470px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
