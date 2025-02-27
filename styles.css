@@ -197,3 +197,59 @@
         font-size: 1.1rem;
     }
 }
+
+/* Faz com que as seções Projetos e Produtos tenham a mesma altura da seção Estatísticas */
+#projetos, #produtos {
+    min-height: 600px; /* Ajuste esse valor conforme necessário */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Ajusta a altura dos cartões de Projetos e Produtos para igualar com Estatísticas */
+#projetos .card, #produtos .card {
+    min-height: 250px; /* Ajuste este valor para coincidir com os cartões de Estatísticas */
+}
+/* Faz com que os cards de Projetos e Produtos tenham a mesma altura dos cards de Estatísticas */
+#projetos .card, #produtos .card {
+    min-height: 250px; /* Ajuste conforme necessário */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Faz com que os containers de Projetos e Produtos sigam a mesma distribuição de Estatísticas */
+#projetos .row, #produtos .row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Distribui em 2 colunas */
+    gap: 20px; /* Espaço entre os cards */
+}
+
+/* Para telas menores, ajusta para uma única coluna */
+@media (max-width: 768px) {
+    #projetos .row, #produtos .row {
+        grid-template-columns: 1fr;
+    }
+}
+
+#estatisticas .card {
+    min-height: 250px; /* Ajuste conforme necessário */
+    width: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Distribui os cards da seção Estatísticas em uma grade 2x2 */
+#estatisticas .row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 20px; /* Espaçamento entre os cards */
+}
+
+/* Responsividade: Em telas menores, os cards ficam em uma única coluna */
+@media (max-width: 768px) {
+    #estatisticas .row {
+        grid-template-columns: 1fr; /* Apenas 1 coluna */
+    }
+}
